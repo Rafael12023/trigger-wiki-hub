@@ -230,33 +230,57 @@ export function Sidebar() {
         mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0",
         collapsed ? "w-16" : "w-72"
       )}>
-        {/* Logo */}
+        {/* Header com Logo e Controles */}
         <div className={cn(
           "border-b border-sidebar-border",
-          collapsed ? "p-3" : "p-6"
+          collapsed ? "p-2" : "p-4"
         )}>
-          <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
-              <div className={cn(
-                "rounded-lg bg-primary/20 flex items-center justify-center glow-cyan",
-                collapsed ? "w-10 h-10" : "w-10 h-10"
-              )}>
-                <Clock className="w-6 h-6 text-primary" />
-              </div>
-              {!collapsed && (
-                <div>
-                  <h1 className="font-pixel text-xs text-primary leading-tight">CHRONO</h1>
-                  <h2 className="font-display text-sm font-bold text-foreground">LORE HUB</h2>
-                </div>
+          {/* Botão de colapsar no topo */}
+          <div className={cn(
+            "flex items-center mb-3",
+            collapsed ? "justify-center" : "justify-between"
+          )}>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleCollapsed}
+              className={cn(
+                "text-muted-foreground hover:text-foreground hover:bg-sidebar-accent transition-colors",
+                collapsed ? "w-10 h-10 p-0" : "h-8 px-2 gap-2"
               )}
-            </Link>
+            >
+              {collapsed ? (
+                <PanelLeft className="w-4 h-4" />
+              ) : (
+                <>
+                  <PanelLeftClose className="w-4 h-4" />
+                  <span className="text-xs">Recolher</span>
+                </>
+              )}
+            </Button>
             {!collapsed && <ThemeToggle />}
           </div>
+
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
+            <div className={cn(
+              "rounded-lg bg-primary/20 flex items-center justify-center glow-cyan",
+              collapsed ? "w-10 h-10" : "w-10 h-10"
+            )}>
+              <Clock className="w-6 h-6 text-primary" />
+            </div>
+            {!collapsed && (
+              <div>
+                <h1 className="font-pixel text-xs text-primary leading-tight">CHRONO</h1>
+                <h2 className="font-display text-sm font-bold text-foreground">LORE HUB</h2>
+              </div>
+            )}
+          </Link>
         </div>
 
         {/* Navigation */}
         <nav className={cn(
-          "h-[calc(100%-140px)] overflow-y-auto",
+          "flex-1 overflow-y-auto",
           collapsed ? "p-2" : "p-4"
         )}>
           <ul className="space-y-1">
@@ -268,30 +292,12 @@ export function Sidebar() {
           </ul>
         </nav>
 
-        {/* Collapse Button */}
-        <div className={cn(
-          "absolute bottom-0 left-0 right-0 border-t border-sidebar-border",
-          collapsed ? "p-2" : "p-4"
-        )}>
-          <div className={cn(
-            "flex items-center",
-            collapsed ? "justify-center" : "justify-between"
-          )}>
-            {collapsed && <ThemeToggle />}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleCollapsed}
-              className="text-muted-foreground hover:text-foreground"
-            >
-              {collapsed ? (
-                <PanelLeft className="w-5 h-5" />
-              ) : (
-                <PanelLeftClose className="w-5 h-5" />
-              )}
-            </Button>
+        {/* Footer - Theme Toggle quando colapsado */}
+        {collapsed && (
+          <div className="p-2 border-t border-sidebar-border flex justify-center">
+            <ThemeToggle />
           </div>
-        </div>
+        )}
       </aside>
     </>
   );
