@@ -24,7 +24,7 @@ const npcs: NPC[] = [
     description: "A bondosa princesa do Reino de Zeal e irmã mais velha de Janus (Magus). Possui poderes mágicos imensos, mas os usa apenas para o bem. Está aprisionada à vontade de sua mãe corrompida.",
     storyImportance: "Personagem central no arco de Zeal. Seu destino é um mistério que conecta Chrono Trigger a Chrono Cross.",
     relatedEvents: ["Queda de Zeal", "Invocação de Lavos no Ocean Palace", "Salvamento de Crono"],
-    image: "https://static.wikia.nocookie.net/chrono/images/5/5e/Schala.png"
+    image: "https://www.spriters-resource.com/resources/sheets/8/8410.png"
   },
   {
     id: "queen_zeal",
