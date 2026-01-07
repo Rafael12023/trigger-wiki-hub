@@ -19,10 +19,15 @@ import {
   ChevronRight,
   Menu,
   X,
-  Home
+  Home,
+  PanelLeftClose,
+  PanelLeft
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { useSidebarContext } from "@/contexts/SidebarContext";
 
 interface NavItem {
   label: string;
@@ -75,6 +80,7 @@ const navItems: NavItem[] = [
 export function Sidebar() {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { collapsed, toggleCollapsed } = useSidebarContext();
 
   const isActive = (href: string) => location.pathname === href;
   const isChildActive = (item: NavItem) => {
@@ -103,7 +109,99 @@ export function Sidebar() {
   };
 
   const shouldShowChildren = (item: NavItem) => {
+    if (collapsed) return false;
     return isExpanded(item) || manualExpanded.includes(item.label);
+  };
+
+  const NavItemContent = ({ item }: { item: NavItem }) => {
+    if (collapsed) {
+      return (
+        <Tooltip delayDuration={0}>
+          <TooltipTrigger asChild>
+            <Link
+              to={item.href}
+              onClick={() => setMobileOpen(false)}
+              className={cn(
+                "flex items-center justify-center p-2.5 rounded-lg transition-all",
+                "hover:bg-sidebar-accent",
+                isParentActive(item)
+                  ? "text-primary bg-sidebar-accent"
+                  : "text-sidebar-foreground"
+              )}
+            >
+              {item.icon}
+            </Link>
+          </TooltipTrigger>
+          <TooltipContent side="right" className="font-medium">
+            {item.label}
+          </TooltipContent>
+        </Tooltip>
+      );
+    }
+
+    if (item.children) {
+      return (
+        <div>
+          <button
+            onClick={() => toggleExpand(item.label)}
+            className={cn(
+              "w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all",
+              "hover:bg-sidebar-accent",
+              isParentActive(item) 
+                ? "text-primary bg-sidebar-accent" 
+                : "text-sidebar-foreground"
+            )}
+          >
+            <span className="flex items-center gap-3">
+              {item.icon}
+              {item.label}
+            </span>
+            {shouldShowChildren(item) 
+              ? <ChevronDown className="w-4 h-4" />
+              : <ChevronRight className="w-4 h-4" />
+            }
+          </button>
+          {shouldShowChildren(item) && (
+            <ul className="mt-1 ml-8 space-y-1">
+              {item.children.map(child => (
+                <li key={child.href}>
+                  <Link
+                    to={child.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={cn(
+                      "block px-3 py-2 rounded-lg text-sm transition-all",
+                      "hover:bg-sidebar-accent",
+                      isActive(child.href)
+                        ? "text-primary bg-sidebar-accent"
+                        : "text-muted-foreground"
+                    )}
+                  >
+                    {child.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      );
+    }
+
+    return (
+      <Link
+        to={item.href}
+        onClick={() => setMobileOpen(false)}
+        className={cn(
+          "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all",
+          "hover:bg-sidebar-accent",
+          isActive(item.href)
+            ? "text-primary bg-sidebar-accent"
+            : "text-sidebar-foreground"
+        )}
+      >
+        {item.icon}
+        {item.label}
+      </Link>
+    );
   };
 
   return (
@@ -126,95 +224,74 @@ export function Sidebar() {
 
       {/* Sidebar */}
       <aside className={cn(
-        "fixed left-0 top-0 h-full w-72 bg-sidebar border-r border-sidebar-border z-40",
-        "transform transition-transform duration-300 ease-in-out",
+        "fixed left-0 top-0 h-full bg-sidebar border-r border-sidebar-border z-40",
+        "transform transition-all duration-300 ease-in-out",
         "lg:translate-x-0",
-        mobileOpen ? "translate-x-0" : "-translate-x-full"
+        mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0",
+        collapsed ? "w-16" : "w-72"
       )}>
         {/* Logo */}
-        <div className="p-6 border-b border-sidebar-border">
+        <div className={cn(
+          "border-b border-sidebar-border",
+          collapsed ? "p-3" : "p-6"
+        )}>
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
-              <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center glow-cyan">
+              <div className={cn(
+                "rounded-lg bg-primary/20 flex items-center justify-center glow-cyan",
+                collapsed ? "w-10 h-10" : "w-10 h-10"
+              )}>
                 <Clock className="w-6 h-6 text-primary" />
               </div>
-              <div>
-                <h1 className="font-pixel text-xs text-primary leading-tight">CHRONO</h1>
-                <h2 className="font-display text-sm font-bold text-foreground">LORE HUB</h2>
-              </div>
+              {!collapsed && (
+                <div>
+                  <h1 className="font-pixel text-xs text-primary leading-tight">CHRONO</h1>
+                  <h2 className="font-display text-sm font-bold text-foreground">LORE HUB</h2>
+                </div>
+              )}
             </Link>
-            <ThemeToggle />
+            {!collapsed && <ThemeToggle />}
           </div>
         </div>
 
         {/* Navigation */}
-        <nav className="p-4 h-[calc(100%-88px)] overflow-y-auto">
+        <nav className={cn(
+          "h-[calc(100%-140px)] overflow-y-auto",
+          collapsed ? "p-2" : "p-4"
+        )}>
           <ul className="space-y-1">
             {navItems.map((item) => (
               <li key={item.label}>
-                {item.children ? (
-                  <div>
-                    <button
-                      onClick={() => toggleExpand(item.label)}
-                      className={cn(
-                        "w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all",
-                        "hover:bg-sidebar-accent",
-                        isParentActive(item) 
-                          ? "text-primary bg-sidebar-accent" 
-                          : "text-sidebar-foreground"
-                      )}
-                    >
-                      <span className="flex items-center gap-3">
-                        {item.icon}
-                        {item.label}
-                      </span>
-                      {shouldShowChildren(item) 
-                        ? <ChevronDown className="w-4 h-4" />
-                        : <ChevronRight className="w-4 h-4" />
-                      }
-                    </button>
-                    {shouldShowChildren(item) && (
-                      <ul className="mt-1 ml-8 space-y-1">
-                        {item.children.map(child => (
-                          <li key={child.href}>
-                            <Link
-                              to={child.href}
-                              onClick={() => setMobileOpen(false)}
-                              className={cn(
-                                "block px-3 py-2 rounded-lg text-sm transition-all",
-                                "hover:bg-sidebar-accent",
-                                isActive(child.href)
-                                  ? "text-primary bg-sidebar-accent"
-                                  : "text-muted-foreground"
-                              )}
-                            >
-                              {child.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                ) : (
-                  <Link
-                    to={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    className={cn(
-                      "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all",
-                      "hover:bg-sidebar-accent",
-                      isActive(item.href)
-                        ? "text-primary bg-sidebar-accent"
-                        : "text-sidebar-foreground"
-                    )}
-                  >
-                    {item.icon}
-                    {item.label}
-                  </Link>
-                )}
+                <NavItemContent item={item} />
               </li>
             ))}
           </ul>
         </nav>
+
+        {/* Collapse Button */}
+        <div className={cn(
+          "absolute bottom-0 left-0 right-0 border-t border-sidebar-border",
+          collapsed ? "p-2" : "p-4"
+        )}>
+          <div className={cn(
+            "flex items-center",
+            collapsed ? "justify-center" : "justify-between"
+          )}>
+            {collapsed && <ThemeToggle />}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleCollapsed}
+              className="text-muted-foreground hover:text-foreground"
+            >
+              {collapsed ? (
+                <PanelLeft className="w-5 h-5" />
+              ) : (
+                <PanelLeftClose className="w-5 h-5" />
+              )}
+            </Button>
+          </div>
+        </div>
       </aside>
     </>
   );
