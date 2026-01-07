@@ -97,10 +97,15 @@ export function Sidebar() {
     return isParentActive(item);
   };
 
-  const [manualExpanded, setManualExpanded] = useState<string[]>([]);
+  const [openMenus, setOpenMenus] = useState<string[]>(() => {
+    // Inicializa com menus ativos abertos
+    return navItems
+      .filter(item => item.children && isParentActive(item))
+      .map(item => item.label);
+  });
   
   const toggleExpand = (label: string) => {
-    setManualExpanded(prev => 
+    setOpenMenus(prev => 
       prev.includes(label) 
         ? prev.filter(l => l !== label)
         : [...prev, label]
@@ -109,7 +114,7 @@ export function Sidebar() {
 
   const shouldShowChildren = (item: NavItem) => {
     if (collapsed) return false;
-    return isExpanded(item) || manualExpanded.includes(item.label);
+    return openMenus.includes(item.label);
   };
 
   const NavItemContent = ({ item }: { item: NavItem }) => {
@@ -333,12 +338,12 @@ export function Sidebar() {
                         {item.icon}
                         {item.label}
                       </span>
-                      {shouldShowChildren(item) || manualExpanded.includes(item.label)
+                      {openMenus.includes(item.label)
                         ? <ChevronDown className="w-4 h-4" />
                         : <ChevronRight className="w-4 h-4" />
                       }
                     </button>
-                    {(isExpanded(item) || manualExpanded.includes(item.label)) && (
+                    {openMenus.includes(item.label) && (
                       <ul className="mt-1 ml-8 space-y-1">
                         {item.children.map(child => (
                           <li key={child.href}>

@@ -69,7 +69,7 @@ export const enemies: Enemy[] = [
 ];
 
 export const bosses: Enemy[] = [
-  {
+{
     id: "yakra",
     name: "Yakra",
     hp: 920,
@@ -82,7 +82,8 @@ export const bosses: Enemy[] = [
     description: "Um monstro que se disfarçou de Chanceler de Guardia e sequestrou a Rainha Leene.",
     isBoss: true,
     strategy: "Yakra usa ataques de agulha e grito. Use combos físicos e magias. Cuidado com seu Needle Spin que atinge todos. Mantenha a cura ativa.",
-    recommendedLevel: 8
+    recommendedLevel: 8,
+    image: "https://static.wikia.nocookie.net/chrono/images/e/e0/Yakra.png"
   },
   {
     id: "dragon_tank",
