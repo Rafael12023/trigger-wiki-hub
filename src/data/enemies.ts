@@ -13,6 +13,7 @@ export interface Enemy {
   isBoss?: boolean;
   strategy?: string;
   recommendedLevel?: number;
+  image?: string;
 }
 
 export const enemies: Enemy[] = [

@@ -22,6 +22,7 @@ import {
   Home
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 interface NavItem {
   label: string;
@@ -117,15 +118,18 @@ export function Sidebar() {
       )}>
         {/* Logo */}
         <div className="p-6 border-b border-sidebar-border">
-          <Link to="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
-            <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center glow-cyan">
-              <Clock className="w-6 h-6 text-primary" />
-            </div>
-            <div>
-              <h1 className="font-pixel text-xs text-primary leading-tight">CHRONO</h1>
-              <h2 className="font-display text-sm font-bold text-foreground">LORE HUB</h2>
-            </div>
-          </Link>
+          <div className="flex items-center justify-between">
+            <Link to="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
+              <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center glow-cyan">
+                <Clock className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h1 className="font-pixel text-xs text-primary leading-tight">CHRONO</h1>
+                <h2 className="font-display text-sm font-bold text-foreground">LORE HUB</h2>
+              </div>
+            </Link>
+            <ThemeToggle />
+          </div>
         </div>
 
         {/* Navigation */}

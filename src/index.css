@@ -6,41 +6,78 @@
 
 @layer base {
   :root {
-    /* Chrono Trigger inspired dark theme */
-    --background: 222 47% 6%;
-    --foreground: 210 40% 96%;
-
-    --card: 222 47% 9%;
-    --card-foreground: 210 40% 96%;
-
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 96%;
-
-    /* Cyan/Teal - Time Portal color */
-    --primary: 185 80% 50%;
-    --primary-foreground: 222 47% 6%;
-
-    /* Deep purple - Magic */
-    --secondary: 270 60% 25%;
-    --secondary-foreground: 210 40% 96%;
-
-    --muted: 222 30% 15%;
-    --muted-foreground: 215 20% 55%;
-
-    /* Gold accent - Heroic */
+    /* Light theme */
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 185 80% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 40% 90%;
+    --secondary-foreground: 270 60% 25%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 20% 45%;
     --accent: 45 90% 55%;
-    --accent-foreground: 222 47% 6%;
-
+    --accent-foreground: 222 47% 11%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 210 40% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 185 80% 40%;
+    --radius: 0.5rem;
+    --chrono-cyan: 185 80% 40%;
+    --chrono-purple: 270 60% 45%;
+    --chrono-gold: 45 90% 45%;
+    --chrono-red: 0 72% 51%;
+    --chrono-green: 150 60% 35%;
+    --chrono-orange: 25 95% 50%;
+    --chrono-dark: 210 40% 96%;
+    --chrono-darker: 210 40% 93%;
+    --era-prehistoric: 30 70% 45%;
+    --era-antiquity: 270 50% 40%;
+    --era-middle: 140 40% 35%;
+    --era-present: 200 60% 45%;
+    --era-future: 0 60% 40%;
+    --era-end-of-time: 260 30% 30%;
+    --gradient-time-portal: linear-gradient(135deg, hsl(185 80% 40%) 0%, hsl(270 60% 45%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(210 40% 98%) 0%, hsl(210 40% 92%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 40% 97%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 90% 55%) 0%, hsl(35 85% 45%) 100%);
+    --shadow-glow-cyan: 0 0 20px hsl(185 80% 40% / 0.2);
+    --shadow-glow-purple: 0 0 20px hsl(270 60% 45% / 0.2);
+    --shadow-glow-gold: 0 0 20px hsl(45 90% 55% / 0.2);
+    --sidebar-background: 210 40% 97%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 185 80% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 93%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 185 80% 40%;
+  }
 
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 96%;
+    --card: 222 47% 9%;
+    --card-foreground: 210 40% 96%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 185 80% 50%;
+    --primary-foreground: 222 47% 6%;
+    --secondary: 270 60% 25%;
+    --secondary-foreground: 210 40% 96%;
+    --muted: 222 30% 15%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 45 90% 55%;
+    --accent-foreground: 222 47% 6%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
     --border: 222 30% 18%;
     --input: 222 30% 18%;
     --ring: 185 80% 50%;
-
-    --radius: 0.5rem;
-
-    /* Custom Chrono colors */
     --chrono-cyan: 185 80% 50%;
     --chrono-purple: 270 60% 45%;
     --chrono-gold: 45 90% 55%;
@@ -49,26 +86,19 @@
     --chrono-orange: 25 95% 55%;
     --chrono-dark: 222 47% 4%;
     --chrono-darker: 222 47% 2%;
-
-    /* Era colors */
     --era-prehistoric: 30 70% 45%;
     --era-antiquity: 270 50% 40%;
     --era-middle: 140 40% 35%;
     --era-present: 200 60% 45%;
     --era-future: 0 60% 40%;
     --era-end-of-time: 260 30% 20%;
-
-    /* Gradients */
     --gradient-time-portal: linear-gradient(135deg, hsl(185 80% 50%) 0%, hsl(270 60% 45%) 100%);
     --gradient-hero: linear-gradient(180deg, hsl(222 47% 6%) 0%, hsl(222 47% 12%) 100%);
     --gradient-card: linear-gradient(145deg, hsl(222 47% 10%) 0%, hsl(222 47% 7%) 100%);
     --gradient-gold: linear-gradient(135deg, hsl(45 90% 55%) 0%, hsl(35 85% 45%) 100%);
-
-    /* Shadows */
     --shadow-glow-cyan: 0 0 30px hsl(185 80% 50% / 0.3);
     --shadow-glow-purple: 0 0 30px hsl(270 60% 45% / 0.3);
     --shadow-glow-gold: 0 0 30px hsl(45 90% 55% / 0.3);
-
     --sidebar-background: 222 47% 5%;
     --sidebar-foreground: 210 40% 96%;
     --sidebar-primary: 185 80% 50%;
