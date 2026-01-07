@@ -9,6 +9,8 @@ import NotFound from "./pages/NotFound";
 import Personagens from "./pages/Personagens";
 import CharacterPage from "./pages/CharacterPage";
 import Historia from "./pages/Historia";
+import HistoriaResumo from "./pages/HistoriaResumo";
+import HistoriaCompleta from "./pages/HistoriaCompleta";
 import LinhaDoTempo from "./pages/LinhaDoTempo";
 import Combate from "./pages/Combate";
 import Bestiario from "./pages/Bestiario";
@@ -38,6 +40,8 @@ const App = () => (
             <Route path="/personagens" element={<Personagens />} />
             <Route path="/personagens/:slug" element={<CharacterPage />} />
             <Route path="/historia" element={<Historia />} />
+            <Route path="/historia/resumo" element={<HistoriaResumo />} />
+            <Route path="/historia/completa" element={<HistoriaCompleta />} />
             <Route path="/historia/linha-do-tempo" element={<LinhaDoTempo />} />
             <Route path="/combate" element={<Combate />} />
             <Route path="/inimigos" element={<Bestiario />} />
