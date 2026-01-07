@@ -74,21 +74,36 @@ const navItems: NavItem[] = [
 
 export function Sidebar() {
   const location = useLocation();
-  const [expanded, setExpanded] = useState<string[]>([]);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const isActive = (href: string) => location.pathname === href;
+  const isChildActive = (item: NavItem) => {
+    return item.children?.some(child => location.pathname.startsWith(child.href));
+  };
+  const isParentActive = (item: NavItem) => {
+    if (isActive(item.href)) return true;
+    if (location.pathname.startsWith(item.href) && item.href !== "/") return true;
+    return isChildActive(item);
+  };
+
+  // Auto-expand based on current route
+  const isExpanded = (item: NavItem) => {
+    if (!item.children) return false;
+    return isParentActive(item);
+  };
+
+  const [manualExpanded, setManualExpanded] = useState<string[]>([]);
+  
   const toggleExpand = (label: string) => {
-    setExpanded(prev => 
+    setManualExpanded(prev => 
       prev.includes(label) 
         ? prev.filter(l => l !== label)
         : [...prev, label]
     );
   };
 
-  const isActive = (href: string) => location.pathname === href;
-  const isParentActive = (item: NavItem) => {
-    if (isActive(item.href)) return true;
-    return item.children?.some(child => isActive(child.href));
+  const shouldShowChildren = (item: NavItem) => {
+    return isExpanded(item) || manualExpanded.includes(item.label);
   };
 
   return (
@@ -153,12 +168,12 @@ export function Sidebar() {
                         {item.icon}
                         {item.label}
                       </span>
-                      {expanded.includes(item.label) 
+                      {shouldShowChildren(item) 
                         ? <ChevronDown className="w-4 h-4" />
                         : <ChevronRight className="w-4 h-4" />
                       }
                     </button>
-                    {expanded.includes(item.label) && (
+                    {shouldShowChildren(item) && (
                       <ul className="mt-1 ml-8 space-y-1">
                         {item.children.map(child => (
                           <li key={child.href}>
