@@ -10,6 +10,9 @@ import CharacterPage from "./pages/CharacterPage";
 import Historia from "./pages/Historia";
 import LinhaDoTempo from "./pages/LinhaDoTempo";
 import Combate from "./pages/Combate";
+import Bestiario from "./pages/Bestiario";
+import Itens from "./pages/Itens";
+import Walkthrough from "./pages/Walkthrough";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +29,9 @@ const App = () => (
           <Route path="/historia" element={<Historia />} />
           <Route path="/historia/linha-do-tempo" element={<LinhaDoTempo />} />
           <Route path="/combate" element={<Combate />} />
+          <Route path="/inimigos" element={<Bestiario />} />
+          <Route path="/itens" element={<Itens />} />
+          <Route path="/walkthrough" element={<Walkthrough />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
