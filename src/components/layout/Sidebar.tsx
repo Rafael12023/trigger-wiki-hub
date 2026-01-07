@@ -92,7 +92,6 @@ export function Sidebar() {
     return isChildActive(item);
   };
 
-  // Auto-expand based on current route
   const isExpanded = (item: NavItem) => {
     if (!item.children) return false;
     return isParentActive(item);
@@ -206,15 +205,26 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Mobile menu button */}
-      <button
-        onClick={() => setMobileOpen(!mobileOpen)}
-        className="fixed top-4 left-4 z-50 lg:hidden p-2 rounded-lg bg-card border border-border"
-      >
-        {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-      </button>
+      {/* Mobile Header - fixo no topo */}
+      <header className="fixed top-0 left-0 right-0 h-14 bg-sidebar border-b border-sidebar-border z-50 lg:hidden flex items-center justify-between px-4">
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="p-2 rounded-lg hover:bg-sidebar-accent transition-colors"
+        >
+          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
+        
+        <Link to="/" className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+            <Clock className="w-5 h-5 text-primary" />
+          </div>
+          <span className="font-display text-sm font-bold">CHRONO LORE</span>
+        </Link>
+        
+        <ThemeToggle />
+      </header>
 
-      {/* Overlay */}
+      {/* Overlay para mobile */}
       {mobileOpen && (
         <div 
           className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40 lg:hidden"
@@ -222,22 +232,20 @@ export function Sidebar() {
         />
       )}
 
-      {/* Sidebar */}
+      {/* Sidebar Desktop - colapsável */}
       <aside className={cn(
         "fixed left-0 top-0 h-full bg-sidebar border-r border-sidebar-border z-40",
-        "transform transition-all duration-300 ease-in-out",
-        "lg:translate-x-0",
-        mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0",
+        "hidden lg:flex lg:flex-col",
+        "transition-all duration-300 ease-in-out",
         collapsed ? "w-16" : "w-72"
       )}>
-        {/* Header com Logo e Controles */}
+        {/* Header da Sidebar Desktop */}
         <div className={cn(
-          "border-b border-sidebar-border",
+          "border-b border-sidebar-border shrink-0",
           collapsed ? "p-2" : "p-4"
         )}>
-          {/* Botão de colapsar no topo */}
           <div className={cn(
-            "flex items-center mb-3",
+            "flex items-center",
             collapsed ? "justify-center" : "justify-between"
           )}>
             <Button
@@ -245,7 +253,7 @@ export function Sidebar() {
               size="sm"
               onClick={toggleCollapsed}
               className={cn(
-                "text-muted-foreground hover:text-foreground hover:bg-sidebar-accent transition-colors",
+                "text-muted-foreground hover:text-foreground hover:bg-sidebar-accent",
                 collapsed ? "w-10 h-10 p-0" : "h-8 px-2 gap-2"
               )}
             >
@@ -260,13 +268,10 @@ export function Sidebar() {
             </Button>
             {!collapsed && <ThemeToggle />}
           </div>
-
+          
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
-            <div className={cn(
-              "rounded-lg bg-primary/20 flex items-center justify-center glow-cyan",
-              collapsed ? "w-10 h-10" : "w-10 h-10"
-            )}>
+          <Link to="/" className={cn("flex items-center gap-3 mt-3", collapsed && "justify-center")}>
+            <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center glow-cyan shrink-0">
               <Clock className="w-6 h-6 text-primary" />
             </div>
             {!collapsed && (
@@ -278,7 +283,7 @@ export function Sidebar() {
           </Link>
         </div>
 
-        {/* Navigation */}
+        {/* Navigation Desktop */}
         <nav className={cn(
           "flex-1 overflow-y-auto",
           collapsed ? "p-2" : "p-4"
@@ -292,12 +297,89 @@ export function Sidebar() {
           </ul>
         </nav>
 
-        {/* Footer - Theme Toggle quando colapsado */}
+        {/* Footer Desktop quando colapsado */}
         {collapsed && (
-          <div className="p-2 border-t border-sidebar-border flex justify-center">
+          <div className="p-2 border-t border-sidebar-border flex justify-center shrink-0">
             <ThemeToggle />
           </div>
         )}
+      </aside>
+
+      {/* Sidebar Mobile - drawer lateral */}
+      <aside className={cn(
+        "fixed left-0 top-14 h-[calc(100%-3.5rem)] w-72 bg-sidebar border-r border-sidebar-border z-40",
+        "lg:hidden flex flex-col",
+        "transition-transform duration-300 ease-in-out",
+        mobileOpen ? "translate-x-0" : "-translate-x-full"
+      )}>
+        {/* Navigation Mobile */}
+        <nav className="flex-1 overflow-y-auto p-4">
+          <ul className="space-y-1">
+            {navItems.map((item) => (
+              <li key={item.label}>
+                {item.children ? (
+                  <div>
+                    <button
+                      onClick={() => toggleExpand(item.label)}
+                      className={cn(
+                        "w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all",
+                        "hover:bg-sidebar-accent",
+                        isParentActive(item) 
+                          ? "text-primary bg-sidebar-accent" 
+                          : "text-sidebar-foreground"
+                      )}
+                    >
+                      <span className="flex items-center gap-3">
+                        {item.icon}
+                        {item.label}
+                      </span>
+                      {shouldShowChildren(item) || manualExpanded.includes(item.label)
+                        ? <ChevronDown className="w-4 h-4" />
+                        : <ChevronRight className="w-4 h-4" />
+                      }
+                    </button>
+                    {(isExpanded(item) || manualExpanded.includes(item.label)) && (
+                      <ul className="mt-1 ml-8 space-y-1">
+                        {item.children.map(child => (
+                          <li key={child.href}>
+                            <Link
+                              to={child.href}
+                              onClick={() => setMobileOpen(false)}
+                              className={cn(
+                                "block px-3 py-2 rounded-lg text-sm transition-all",
+                                "hover:bg-sidebar-accent",
+                                isActive(child.href)
+                                  ? "text-primary bg-sidebar-accent"
+                                  : "text-muted-foreground"
+                              )}
+                            >
+                              {child.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    to={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={cn(
+                      "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all",
+                      "hover:bg-sidebar-accent",
+                      isActive(item.href)
+                        ? "text-primary bg-sidebar-accent"
+                        : "text-sidebar-foreground"
+                    )}
+                  >
+                    {item.icon}
+                    {item.label}
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
+        </nav>
       </aside>
     </>
   );

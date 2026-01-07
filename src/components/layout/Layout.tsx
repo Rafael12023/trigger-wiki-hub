@@ -15,9 +15,10 @@ function LayoutContent({ children }: LayoutProps) {
       <Sidebar />
       <main className={cn(
         "min-h-screen transition-all duration-300",
+        "pt-14 lg:pt-0", // Padding top para o header mobile
         collapsed ? "lg:ml-16" : "lg:ml-72"
       )}>
-        <div className="p-6 lg:p-8">
+        <div className="p-4 sm:p-6 lg:p-8">
           {children}
         </div>
       </main>
