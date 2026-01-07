@@ -1,0 +1,359 @@
+export interface Enemy {
+  id: string;
+  name: string;
+  hp: number;
+  exp: number;
+  gold: number;
+  location: string;
+  era: string;
+  weakness?: string;
+  drops?: string[];
+  charmsItem?: string;
+  description: string;
+  isBoss?: boolean;
+  strategy?: string;
+  recommendedLevel?: number;
+}
+
+export const enemies: Enemy[] = [
+  // 1000 AD Enemies
+  { id: "blue_imp", name: "Blue Imp", hp: 13, exp: 2, gold: 5, location: "Guardia Forest", era: "1000 AD", weakness: "Nenhum", drops: ["Potion"], description: "Pequeno demônio azul encontrado nas florestas." },
+  { id: "green_imp", name: "Green Imp", hp: 18, exp: 3, gold: 6, location: "Guardia Forest", era: "1000 AD", drops: ["Potion"], description: "Variante verde do imp, ligeiramente mais forte." },
+  { id: "roly", name: "Roly", hp: 15, exp: 3, gold: 5, location: "Guardia Forest", era: "1000 AD", description: "Criatura redonda que rola para atacar." },
+  { id: "poly", name: "Poly", hp: 19, exp: 4, gold: 6, location: "Guardia Forest", era: "1000 AD", description: "Versão maior do Roly." },
+  { id: "hetake", name: "Hetake", hp: 16, exp: 3, gold: 5, location: "Guardia Forest, Cathedral", era: "1000 AD / 600 AD", description: "Cogumelo ambulante que libera esporos." },
+  { id: "beetle", name: "Beetle", hp: 18, exp: 4, gold: 6, location: "Guardia Forest", era: "1000 AD", weakness: "Fogo", description: "Besouro grande encontrado em florestas." },
+  
+  // 600 AD Enemies
+  { id: "diablos", name: "Diablos", hp: 50, exp: 18, gold: 80, location: "Cathedral", era: "600 AD", weakness: "Fogo", drops: ["Mid Potion"], description: "Demônios disfarçados de humanos na Catedral." },
+  { id: "gnasher", name: "Gnasher", hp: 90, exp: 22, gold: 50, location: "Cathedral", era: "600 AD", drops: ["Revive"], description: "Criaturas grotescas com mandíbulas enormes." },
+  { id: "naga_ette", name: "Naga-ette", hp: 60, exp: 15, gold: 40, location: "Cathedral", era: "600 AD", weakness: "Raio", description: "Versão menor das nagas, serpentes humanoides." },
+  { id: "hench", name: "Hench", hp: 49, exp: 15, gold: 55, location: "Cathedral", era: "600 AD", description: "Soldados do exército Mystic." },
+  { id: "grimalkin", name: "Grimalkin", hp: 120, exp: 30, gold: 100, location: "Zenan Bridge", era: "600 AD", weakness: "Fogo", description: "Gato demoníaco com garras afiadas." },
+  { id: "deceased", name: "Deceased", hp: 110, exp: 28, gold: 90, location: "Zenan Bridge", era: "600 AD", weakness: "Fogo, Luz", drops: ["Ether"], description: "Esqueletos de soldados caídos." },
+  { id: "ogan", name: "Ogan", hp: 146, exp: 40, gold: 120, location: "Denadoro Mountains", era: "600 AD", weakness: "Raio", description: "Ogro verde armado com martelo." },
+  { id: "goblin", name: "Goblin", hp: 146, exp: 50, gold: 150, location: "Denadoro Mountains", era: "600 AD", weakness: "Raio", description: "Criatura verde pequena e traiçoeira." },
+  { id: "ogan_hammer", name: "Free Lancer", hp: 110, exp: 35, gold: 100, location: "Denadoro Mountains", era: "600 AD", description: "Ogan que arremessa seu martelo como bumerangue." },
+  
+  // 65.000.000 BC Enemies
+  { id: "reptite_green", name: "Reptite (Green)", hp: 92, exp: 28, gold: 55, location: "Hunting Range", era: "65M BC", weakness: "Raio", drops: ["Petal"], description: "Dinossauro humanoide verde, guerreiro básico." },
+  { id: "reptite_purple", name: "Reptite (Purple)", hp: 336, exp: 135, gold: 150, location: "Reptite Lair", era: "65M BC", weakness: "Raio", description: "Reptite de elite com armadura roxa." },
+  { id: "kilwala", name: "Kilwala", hp: 160, exp: 36, gold: 70, location: "Mystic Mts", era: "65M BC", drops: ["Petal"], description: "Criatura peluda e pacífica, mas forte quando provocada." },
+  { id: "runner", name: "Runner", hp: 196, exp: 50, gold: 100, location: "Hunting Range", era: "65M BC", drops: ["Horn"], description: "Dinossauro veloz que ataca em grupos." },
+  { id: "evilweevil", name: "Evilweevil", hp: 158, exp: 45, gold: 90, location: "Forest Maze", era: "65M BC", weakness: "Fogo", description: "Inseto gigante voador com ataque venenoso." },
+  { id: "megasaur", name: "Megasaur", hp: 720, exp: 200, gold: 300, location: "Reptite Lair", era: "65M BC", weakness: "Água", drops: ["Mid Ether"], description: "T-Rex enorme e devastador." },
+  
+  // 2300 AD Enemies  
+  { id: "rat", name: "Rat", hp: 45, exp: 15, gold: 30, location: "Sewer Access", era: "2300 AD", weakness: "Fogo", description: "Rato mutante das ruínas." },
+  { id: "krawlie", name: "Krawlie", hp: 500, exp: 150, gold: 250, location: "Sewer Access", era: "2300 AD", weakness: "Raio", drops: ["Mid Ether"], description: "Crustáceo gigante que bloqueia passagens." },
+  { id: "version2", name: "Version 2.0", hp: 128, exp: 40, gold: 80, location: "Proto Dome", era: "2300 AD", weakness: "Raio", description: "Robô de segurança do domo." },
+  { id: "debugger", name: "Debugger", hp: 120, exp: 38, gold: 75, location: "Proto Dome", era: "2300 AD", weakness: "Raio", description: "Drone de manutenção hostil." },
+  { id: "proto2", name: "Proto 2", hp: 128, exp: 40, gold: 85, location: "Factory", era: "2300 AD", weakness: "Raio", description: "Robô de combate da fábrica." },
+  { id: "acid", name: "Acid", hp: 255, exp: 80, gold: 150, location: "Factory", era: "2300 AD", weakness: "Fogo", description: "Blob ácido corrosivo." },
+  { id: "alkaline", name: "Alkaline", hp: 230, exp: 75, gold: 140, location: "Factory", era: "2300 AD", description: "Blob alcalino, contraparte do Acid." },
+  
+  // 12.000 BC Enemies
+  { id: "scouter", name: "Scouter", hp: 300, exp: 100, gold: 200, location: "Zeal Palace", era: "12000 BC", weakness: "Raio", description: "Criatura voadora que patrulha Zeal." },
+  { id: "lasher", name: "Lasher", hp: 666, exp: 200, gold: 400, location: "Ocean Palace", era: "12000 BC", weakness: "Água", drops: ["Hi-Ether"], description: "Demônio com tentáculos cortantes." },
+  { id: "thrash", name: "Thrash", hp: 666, exp: 180, gold: 380, location: "Ocean Palace", era: "12000 BC", description: "Variante do Lasher ainda mais agressivo." },
+  { id: "mage", name: "Mage", hp: 480, exp: 150, gold: 350, location: "Ocean Palace", era: "12000 BC", weakness: "Físico", drops: ["Mid Ether"], description: "Mago de Zeal corrompido pelo poder de Lavos." },
+  { id: "red_scout", name: "Red Scout", hp: 300, exp: 110, gold: 220, location: "Ocean Palace", era: "12000 BC", weakness: "Água", description: "Scouter elite com armadura vermelha." },
+  
+  // End of Time / Black Omen
+  { id: "panel", name: "Panel", hp: 1875, exp: 600, gold: 800, location: "Black Omen", era: "12000 BC", weakness: "Raio", drops: ["Speed Tab"], description: "Painéis defensivos do Black Omen." },
+  { id: "blobs", name: "Blob", hp: 1250, exp: 450, gold: 600, location: "Black Omen", era: "12000 BC", weakness: "Fogo", description: "Massas amorfas de energia escura." },
+  { id: "synchrite", name: "Synchrite", hp: 2250, exp: 700, gold: 1000, location: "Black Omen", era: "12000 BC", drops: ["Elixir"], description: "Guardiões cristalinos do Omen." },
+  { id: "martello", name: "Martello", hp: 1245, exp: 500, gold: 700, location: "Black Omen", era: "12000 BC", weakness: "Raio", description: "Máquina de guerra do Black Omen." },
+  { id: "goon", name: "Goon", hp: 2800, exp: 800, gold: 1200, location: "Black Omen", era: "12000 BC", weakness: "Água", drops: ["MegaElixir"], description: "Demônio elite guardião do Omen." },
+];
+
+export const bosses: Enemy[] = [
+  {
+    id: "yakra",
+    name: "Yakra",
+    hp: 920,
+    exp: 50,
+    gold: 600,
+    location: "Cathedral",
+    era: "600 AD",
+    weakness: "Nenhum",
+    drops: ["Mid Ether"],
+    description: "Um monstro que se disfarçou de Chanceler de Guardia e sequestrou a Rainha Leene.",
+    isBoss: true,
+    strategy: "Yakra usa ataques de agulha e grito. Use combos físicos e magias. Cuidado com seu Needle Spin que atinge todos. Mantenha a cura ativa.",
+    recommendedLevel: 8
+  },
+  {
+    id: "dragon_tank",
+    name: "Dragon Tank",
+    hp: 266,
+    exp: 40,
+    gold: 500,
+    location: "Guardia Castle Prison",
+    era: "1000 AD",
+    weakness: "Raio (Cabeça)",
+    description: "Tanque mecânico com três partes: Cabeça (cura), Corpo e Rodas.",
+    isBoss: true,
+    strategy: "DEVE destruir a Cabeça primeiro pois ela cura o tanque. Depois destrua as Rodas para parar o movimento. Use Lightning na Cabeça.",
+    recommendedLevel: 6
+  },
+  {
+    id: "masa_mune",
+    name: "Masa & Mune",
+    hp: 1000,
+    exp: 80,
+    gold: 400,
+    location: "Denadoro Mountains",
+    era: "600 AD",
+    weakness: "Nenhum",
+    description: "Os espíritos gêmeos que guardam a lendária espada Masamune. Primeiro lutam separados, depois se fundem.",
+    isBoss: true,
+    strategy: "Fase 1: Derrote Masa primeiro (cura menos). Fase 2: Quando fundidos, usam Tornado - mantenha HP alto. Use combos de Crono e Frog.",
+    recommendedLevel: 12
+  },
+  {
+    id: "nizbel",
+    name: "Nizbel",
+    hp: 4200,
+    exp: 500,
+    gold: 0,
+    location: "Reptite Lair",
+    era: "65M BC",
+    weakness: "Raio (libera defesa)",
+    description: "Guarda-costas pessoal de Azala. Um Reptite massivo com defesa extremamente alta.",
+    isBoss: true,
+    strategy: "Use Lightning/Lightning2 para reduzir sua defesa, depois ataque com físicos. Quando ele liberar a energia elétrica, sua defesa volta. Repita o ciclo.",
+    recommendedLevel: 18
+  },
+  {
+    id: "magus_boss",
+    name: "Magus",
+    hp: 6666,
+    exp: 1500,
+    gold: 3000,
+    location: "Magus Castle",
+    era: "600 AD",
+    weakness: "Muda de elemento",
+    drops: ["Magic Scarf"],
+    description: "O líder dos Mystics e um dos magos mais poderosos. Invoca Lavos como parte de seu plano de vingança.",
+    isBoss: true,
+    strategy: "Magus muda de barreira elemental - ataque com o elemento oposto ou espere mudar. Quando criar barreira, pare de atacar até mudar. Em baixo HP, usa Dark Matter - mantenha HP acima de 300.",
+    recommendedLevel: 25
+  },
+  {
+    id: "nizbel2",
+    name: "Nizbel II",
+    hp: 6500,
+    exp: 880,
+    gold: 0,
+    location: "Tyrano Lair",
+    era: "65M BC",
+    weakness: "Raio (libera defesa)",
+    description: "Versão mais forte de Nizbel encontrada no covil de Azala.",
+    isBoss: true,
+    strategy: "Mesma estratégia do Nizbel original, mas ele contra-ataca mais forte. Mantenha curas constantes e use a estratégia de Lightning.",
+    recommendedLevel: 28
+  },
+  {
+    id: "azala",
+    name: "Azala & Black Tyrano",
+    hp: 2700,
+    exp: 1800,
+    gold: 0,
+    location: "Tyrano Lair",
+    era: "65M BC",
+    weakness: "Raio (Azala), Nenhum (Tyrano)",
+    description: "A líder dos Reptites montada em um Tyrannosaurus Rex negro. A batalha final pela sobrevivência da espécie.",
+    isBoss: true,
+    strategy: "Derrote Azala primeiro - ela cura e dá buffs ao Tyrano. Depois foque no Black Tyrano. Quando Tyrano contar regressivamente, ele usará ataque de fogo devastador - cure imediatamente após.",
+    recommendedLevel: 30
+  },
+  {
+    id: "golem",
+    name: "Golem",
+    hp: 7000,
+    exp: 1000,
+    gold: 2000,
+    location: "Zeal Palace",
+    era: "12000 BC",
+    weakness: "Qualquer magia (copia e ataca)",
+    description: "Guardião de Zeal feito de rocha mágica. Copia elementos usados contra ele.",
+    isBoss: true,
+    strategy: "Use apenas ataques físicos! Qualquer magia fará ele copiar e contra-atacar com versão mais forte. Equipar resistências não ajuda pois ele varia.",
+    recommendedLevel: 32
+  },
+  {
+    id: "dalton_golem",
+    name: "Dalton Plus",
+    hp: 3500,
+    exp: 2500,
+    gold: 2000,
+    location: "Blackbird",
+    era: "12000 BC",
+    weakness: "Nenhum",
+    drops: ["Magic Tab"],
+    description: "Dalton montado em seu Golem Boss melhorado após roubar o Epoch.",
+    isBoss: true,
+    strategy: "Ataque com físicos enquanto evita magias. Dalton é arrogante e deixa brechas. Derrote o Golem para forçar Dalton a fugir.",
+    recommendedLevel: 35
+  },
+  {
+    id: "giga_gaia",
+    name: "Giga Gaia",
+    hp: 9500,
+    exp: 3000,
+    gold: 3000,
+    location: "Mt. Woe",
+    era: "12000 BC",
+    weakness: "Nenhum (Cabeça), Raio (Mãos)",
+    drops: ["Speed Tab"],
+    description: "Guardião titânico que mantém a Montanha Woe suspensa no ar.",
+    isBoss: true,
+    strategy: "Destrua as mãos primeiro - a direita cura, a esquerda ataca. Quando ambas estiverem destruídas, ataque a cabeça. As mãos regeneram, então seja rápido.",
+    recommendedLevel: 37
+  },
+  {
+    id: "queen_zeal",
+    name: "Queen Zeal",
+    hp: 12000,
+    exp: 0,
+    gold: 0,
+    location: "Ocean Palace",
+    era: "12000 BC",
+    weakness: "Nenhum",
+    description: "A Rainha de Zeal corrompida pelo poder de Lavos. Primeira forma antes da fusão.",
+    isBoss: true,
+    strategy: "Ataque rápido e mantenha curas. Ela usa Hallation para reduzir HP de todos a 1. Esteja preparado para curar imediatamente após.",
+    recommendedLevel: 40
+  },
+  {
+    id: "lavos_outer",
+    name: "Lavos (Shell)",
+    hp: 10000,
+    exp: 0,
+    gold: 0,
+    location: "Day of Lavos",
+    era: "1999 AD",
+    weakness: "Nenhum",
+    description: "A forma externa de Lavos, o parasita alienígena que ameaça destruir o mundo.",
+    isBoss: true,
+    strategy: "Lavos imita ataques de bosses anteriores. Sobreviva às fases e ataque a cabeça. Quando abrir, ataque o núcleo interno.",
+    recommendedLevel: 45
+  },
+  {
+    id: "lavos_body",
+    name: "Lavos (Humanoid)",
+    hp: 20000,
+    exp: 0,
+    gold: 0,
+    location: "Inside Lavos",
+    era: "1999 AD",
+    weakness: "Nenhum",
+    description: "O corpo central de Lavos em forma humanoide.",
+    isBoss: true,
+    strategy: "Luta em duas fases. Ataque os braços se necessário mas foque no corpo. Ataques de área funcionam bem.",
+    recommendedLevel: 50
+  },
+  {
+    id: "lavos_core",
+    name: "Lavos Core",
+    hp: 30000,
+    exp: 0,
+    gold: 0,
+    location: "Inside Lavos",
+    era: "1999 AD",
+    weakness: "Nenhum",
+    description: "O verdadeiro núcleo de Lavos - a batalha final.",
+    isBoss: true,
+    strategy: "CUIDADO: Destrua o bit DIREITO primeiro, depois o bit ESQUERDO, só então ataque o CENTRO. Se destruir o centro antes, ele revive com HP cheio. Use Luminaire, Flare, Dark Matter.",
+    recommendedLevel: 55
+  },
+  {
+    id: "son_of_sun",
+    name: "Son of Sun",
+    hp: 2000,
+    exp: 3800,
+    gold: 2000,
+    location: "Sun Palace",
+    era: "2300 AD",
+    weakness: "Acerto no core correto",
+    drops: ["Moon Stone"],
+    description: "Uma entidade solar guardando o Sun Stone no palácio do sol.",
+    isBoss: true,
+    strategy: "Não ataque o centro! Ataque as 5 chamas orbitantes para encontrar o core verdadeiro. O errado causa contra-ataque de fogo. Use resistência a fogo.",
+    recommendedLevel: 38
+  },
+  {
+    id: "rust_tyrano",
+    name: "Rust Tyrano",
+    hp: 25000,
+    exp: 3800,
+    gold: 2000,
+    location: "Giant's Claw",
+    era: "600 AD",
+    weakness: "Nenhum",
+    drops: ["Rainbow Shell"],
+    description: "O esqueleto fossilizado do Black Tyrano, animado por energia residual.",
+    isBoss: true,
+    strategy: "Ele conta regressivamente para ataque devastador - cure após cada contagem zero. Ataques físicos fortes funcionam melhor. Luta de resistência.",
+    recommendedLevel: 42
+  },
+  {
+    id: "mother_brain",
+    name: "Mother Brain",
+    hp: 5000,
+    exp: 3000,
+    gold: 3500,
+    location: "Geno Dome",
+    era: "2300 AD",
+    weakness: "Raio",
+    drops: ["Blue Gem"],
+    description: "O computador central que controla todos os robôs do futuro. Criador de Robo.",
+    isBoss: true,
+    strategy: "Destrua os 3 Displays primeiro - eles curam a Mother Brain. Use ataques elétricos. Esta batalha é emocionalmente importante para Robo.",
+    recommendedLevel: 44
+  },
+  {
+    id: "mega_mutant",
+    name: "Mega Mutant",
+    hp: 4600,
+    exp: 1500,
+    gold: 1800,
+    location: "Black Omen",
+    era: "12000 BC",
+    weakness: "Fogo",
+    drops: ["Elixir"],
+    description: "Mutante gigante criado pela energia de Lavos no Black Omen.",
+    isBoss: true,
+    strategy: "Use ataques de fogo e mantenha curas constantes. Cuidado com ataques de status.",
+    recommendedLevel: 48
+  },
+  {
+    id: "zeal_face",
+    name: "Zeal (Face Form)",
+    hp: 20000,
+    exp: 6500,
+    gold: 4000,
+    location: "Black Omen",
+    era: "12000 BC",
+    weakness: "Nenhum",
+    description: "Forma monstruosa da Rainha Zeal fundida com o poder de Lavos.",
+    isBoss: true,
+    strategy: "Ataque a mão esquerda (cura) primeiro, depois a direita, por último a cabeça. Hallation reduz HP a 1 - prepare MegaElixirs.",
+    recommendedLevel: 52
+  },
+  {
+    id: "mammon_machine",
+    name: "Mammon Machine",
+    hp: 18000,
+    exp: 0,
+    gold: 0,
+    location: "Black Omen",
+    era: "12000 BC",
+    weakness: "Nenhum",
+    description: "A máquina que absorve energia de Lavos, a causa da queda de Zeal.",
+    isBoss: true,
+    strategy: "Ataque constantemente - ela absorve MP se você usar magia. Ataques físicos são seguros. Ela não pode ser derrotada completamente.",
+    recommendedLevel: 50
+  },
+];
