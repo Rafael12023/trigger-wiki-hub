@@ -84,7 +84,7 @@ export const charactersData: Record<string, CharacterData> = {
       accessory: "Gold Stud - Reduz custo de MP em 75%",
     },
     color: "text-chrono-cyan",
-    imageUrl: "https://static.wikia.nocookie.net/chrono/images/2/25/Crono2.png",
+    imageUrl: "/images/characters/crono.png",
   },
   marle: {
     name: "Marle",
@@ -135,7 +135,7 @@ export const charactersData: Record<string, CharacterData> = {
       accessory: "Prism Specs - Aumenta poder mágico significativamente",
     },
     color: "text-chrono-cyan",
-    imageUrl: "https://static.wikia.nocookie.net/chrono/images/0/00/Marle2.png",
+    imageUrl: "/images/characters/marle.png",
   },
   lucca: {
     name: "Lucca",
@@ -186,7 +186,7 @@ export const charactersData: Record<string, CharacterData> = {
       accessory: "Sun Shades - Aumenta poder de ataque",
     },
     color: "text-chrono-red",
-    imageUrl: "https://static.wikia.nocookie.net/chrono/images/6/68/Lucca2.png",
+    imageUrl: "/images/characters/lucca.png",
   },
   frog: {
     name: "Frog",
@@ -238,7 +238,7 @@ export const charactersData: Record<string, CharacterData> = {
       accessory: "Hero Medal - Aumenta crítico com Masamune",
     },
     color: "text-chrono-green",
-    imageUrl: "https://static.wikia.nocookie.net/chrono/images/9/9e/Frog2.png",
+    imageUrl: "/images/characters/frog.png",
   },
   robo: {
     name: "Robo",
@@ -292,7 +292,7 @@ export const charactersData: Record<string, CharacterData> = {
       accessory: "Gold Stud - Reduz custo de MP",
     },
     color: "text-chrono-gold",
-    imageUrl: "https://static.wikia.nocookie.net/chrono/images/e/e5/Robo2.png",
+    imageUrl: "/images/characters/robo.png",
   },
   ayla: {
     name: "Ayla",
@@ -347,7 +347,7 @@ export const charactersData: Record<string, CharacterData> = {
       accessory: "Power Glove - Aumenta poder de ataque",
     },
     color: "text-amber-400",
-    imageUrl: "https://static.wikia.nocookie.net/chrono/images/4/43/Ayla2.png",
+    imageUrl: "/images/characters/ayla.png",
   },
   magus: {
     name: "Magus",
@@ -395,6 +395,6 @@ export const charactersData: Record<string, CharacterData> = {
       accessory: "Gold Stud - Reduz custo de MP em 75%",
     },
     color: "text-chrono-purple",
-    imageUrl: "https://static.wikia.nocookie.net/chrono/images/e/ed/Magus2.png",
+    imageUrl: "/images/characters/magus.png",
   },
 };

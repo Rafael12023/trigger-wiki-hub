@@ -24,7 +24,7 @@ const npcs: NPC[] = [
     description: "A bondosa princesa do Reino de Zeal e irmã mais velha de Janus (Magus). Possui poderes mágicos imensos, mas os usa apenas para o bem. Está aprisionada à vontade de sua mãe corrompida.",
     storyImportance: "Personagem central no arco de Zeal. Seu destino é um mistério que conecta Chrono Trigger a Chrono Cross.",
     relatedEvents: ["Queda de Zeal", "Invocação de Lavos no Ocean Palace", "Salvamento de Crono"],
-    image: "https://www.spriters-resource.com/resources/sheets/8/8410.png"
+    image: "/images/npcs/schala.png"
   },
   {
     id: "queen_zeal",
@@ -35,7 +35,7 @@ const npcs: NPC[] = [
     description: "Antes uma governante sábia, foi corrompida pela obsessão em obter o poder de Lavos. Sacrifica tudo - incluindo seus filhos - em busca de imortalidade.",
     storyImportance: "Antagonista principal do arco de 12000 BC. Representa os perigos da ambição desmedida.",
     relatedEvents: ["Construção do Ocean Palace", "Mammon Machine", "Criação do Black Omen"],
-    image: "https://static.wikia.nocookie.net/chrono/images/5/52/Queen_Zeal.png"
+    image: "/images/npcs/queen-zeal.png"
   },
   {
     id: "gaspar",
@@ -46,7 +46,7 @@ const npcs: NPC[] = [
     description: "Um dos três Gurus de Zeal. Quando a Mammon Machine foi ativada, foi arremessado para o Fim dos Tempos, onde agora guia os viajantes temporais.",
     storyImportance: "Fornece orientação crucial ao grupo, incluindo a estratégia para derrotar Lavos e o uso do Chrono Trigger.",
     relatedEvents: ["Construção do Chrono Trigger", "Reviver Crono", "Orientação sobre Gates"],
-    image: "https://static.wikia.nocookie.net/chrono/images/1/1f/Gaspar.png"
+    image: "/images/npcs/gaspar.png"
   },
   {
     id: "melchior",
@@ -57,7 +57,7 @@ const npcs: NPC[] = [
     description: "O maior ferreiro de todos os tempos. Criador da Masamune e outras armas lendárias. Exilado para 1000 AD após o desastre de Zeal.",
     storyImportance: "Cria equipamentos cruciais como a Masamune restaurada e o Rainbow Sword.",
     relatedEvents: ["Restauração da Masamune", "Criação do Rainbow", "Libertação de Mt. Woe"],
-    image: "https://static.wikia.nocookie.net/chrono/images/c/cb/Melchior.png"
+    image: "/images/npcs/melchior.png"
   },
   {
     id: "belthasar",
@@ -68,7 +68,7 @@ const npcs: NPC[] = [
     description: "O mais brilhante cientista de Zeal. Enviado para o futuro devastado, onde construiu o Epoch antes de morrer. Seu conhecimento vive em um Nu.",
     storyImportance: "Criador do Epoch, a máquina do tempo que permite viagem temporal livre.",
     relatedEvents: ["Construção do Epoch", "Wings of Time", "Keeper's Dome"],
-    image: "https://static.wikia.nocookie.net/chrono/images/f/f9/Belthasar.png"
+    image: "/images/npcs/belthasar.png"
   },
   {
     id: "dalton",
@@ -79,7 +79,7 @@ const npcs: NPC[] = [
     description: "Arrogante general das forças de Zeal. Após a queda do reino, tenta assumir o poder e rouba o Epoch temporariamente.",
     storyImportance: "Antagonista secundário que fornece momentos de tensão e comédia involuntária.",
     relatedEvents: ["Captura do grupo no Blackbird", "Modificação do Epoch", "Golem Boss"],
-    image: "https://static.wikia.nocookie.net/chrono/images/7/77/Dalton.png"
+    image: "/images/npcs/dalton.png"
   },
   {
     id: "azala",
@@ -90,7 +90,7 @@ const npcs: NPC[] = [
     description: "A astuta e determinada líder da raça Reptite. Luta pela sobrevivência de seu povo contra os humanos e prevê corretamente o impacto de Lavos.",
     storyImportance: "Antagonista trágica que representa o conflito entre espécies pela sobrevivência.",
     relatedEvents: ["Guerra Humanos vs Reptites", "Batalha no Tyrano Lair", "Queda de Lavos"],
-    image: "https://static.wikia.nocookie.net/chrono/images/a/a7/Azala.png"
+    image: "/images/npcs/azala.png"
   },
   {
     id: "kino",
@@ -101,7 +101,7 @@ const npcs: NPC[] = [
     description: "Companheiro leal de Ayla e futuro líder da tribo Ioka. Inicialmente ciumento de Crono, mas prova ser corajoso e dedicado.",
     storyImportance: "Interesse romântico de Ayla e ancestral distante de Marle.",
     relatedEvents: ["Roubo do Gate Key", "Resgate na Reptite Lair", "Casamento com Ayla"],
-    image: "https://static.wikia.nocookie.net/chrono/images/0/02/Kino.png"
+    image: "/images/npcs/kino.png"
   },
   {
     id: "janus",
@@ -112,7 +112,7 @@ const npcs: NPC[] = [
     description: "O príncipe solitário de Zeal, irmão de Schala. Possui poderes proféticos e uma conexão com seu gato Alfador. Se tornará Magus no futuro.",
     storyImportance: "Sua transformação em Magus é central para a história de 600 AD.",
     relatedEvents: ["Profecia sobre Lavos", "Separação de Schala", "Envio para 600 AD"],
-    image: "https://static.wikia.nocookie.net/chrono/images/9/93/Young_Janus_and_Alfador.png"
+    image: "/images/npcs/janus.png"
   },
   {
     id: "toma",
@@ -123,7 +123,7 @@ const npcs: NPC[] = [
     description: "Um aventureiro que busca o Rainbow Shell. Pede a Crono que derrame uma bebida em seu túmulo se ele falhar - o que leva a uma side quest importante.",
     storyImportance: "Conecta 600 AD a 1000 AD através de sua busca pelo Rainbow Shell.",
     relatedEvents: ["Busca pelo Rainbow Shell", "Túmulo de Toma", "Giant's Claw"],
-    image: "https://static.wikia.nocookie.net/chrono/images/b/bf/Toma.png"
+    image: "/images/npcs/toma.png"
   },
   {
     id: "king_guardia_xxi",
@@ -134,7 +134,7 @@ const npcs: NPC[] = [
     description: "Pai de Marle e atual rei de Guardia. Superprotetor com sua filha após a morte da rainha. Eventualmente reconcilia-se com Marle.",
     storyImportance: "Representa o conflito familiar de Marle e é alvo de uma conspiração no Rainbow Shell trial.",
     relatedEvents: ["Julgamento de Crono", "Reconciliação com Marle", "Conspiração de Yakra XIII"],
-    image: "https://static.wikia.nocookie.net/chrono/images/4/43/King_Guardia_XXXIII.png"
+    image: "/images/npcs/king-guardia.png"
   },
   {
     id: "cyrus",
@@ -145,7 +145,7 @@ const npcs: NPC[] = [
     description: "O maior cavaleiro de Guardia e melhor amigo de Glenn (Frog). Morto por Magus ao tentar recuperar a Masamune.",
     storyImportance: "Sua morte transformou Glenn em Frog e motiva sua jornada de vingança.",
     relatedEvents: ["Morte nas mãos de Magus", "Busca pela Masamune", "Northern Ruins"],
-    image: "https://static.wikia.nocookie.net/chrono/images/d/d3/Cyrus.png"
+    image: "/images/npcs/cyrus.png"
   },
   {
     id: "queen_leene",
@@ -156,7 +156,7 @@ const npcs: NPC[] = [
     description: "Rainha bondosa de 600 AD e ancestral de Marle. Seu sequestro por Yakra inicia os eventos da viagem temporal.",
     storyImportance: "Sua conexão com Marle causa o paradoxo temporal inicial.",
     relatedEvents: ["Sequestro por Yakra", "Confusão com Marle", "Resgate na Cathedral"],
-    image: "https://static.wikia.nocookie.net/chrono/images/c/c3/Queen_Leene.png"
+    image: "/images/npcs/queen-leene.png"
   },
   {
     id: "doan",
@@ -167,7 +167,7 @@ const npcs: NPC[] = [
     description: "Líder dos poucos sobreviventes humanos no futuro devastado. Descendente de Marle. Fornece a motivação final para derrotar Lavos.",
     storyImportance: "Representa o que está em jogo - o futuro da humanidade.",
     relatedEvents: ["Descoberta do Day of Lavos", "Sementes no Domo", "Esperança para o futuro"],
-    image: "https://static.wikia.nocookie.net/chrono/images/3/36/Doan.png"
+    image: "/images/npcs/doan.png"
   },
   {
     id: "johnny",
@@ -178,7 +178,7 @@ const npcs: NPC[] = [
     description: "Um robô motociclista que desafia Crono para uma corrida no Site 32. Um dos poucos elementos 'leves' do futuro sombrio.",
     storyImportance: "Mini-game de corrida e alívio cômico no arco do futuro.",
     relatedEvents: ["Corrida no Lab 32", "Bike Key"],
-    image: "https://static.wikia.nocookie.net/chrono/images/5/52/Johnny.png"
+    image: "/images/npcs/johnny.png"
   },
 ];
 
@@ -202,7 +202,8 @@ export default function NPCs() {
                     <img 
                       src={npc.image} 
                       alt={npc.name}
-                      className="w-full h-full object-contain"
+                      className="w-full h-full object-contain p-4"
+                      style={{ imageRendering: 'pixelated' }}
                       onError={(e) => {
                         e.currentTarget.src = "";
                         e.currentTarget.style.display = "none";

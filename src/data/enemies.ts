@@ -83,7 +83,7 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "Yakra usa ataques de agulha e grito. Use combos físicos e magias. Cuidado com seu Needle Spin que atinge todos. Mantenha a cura ativa.",
     recommendedLevel: 8,
-    image: "https://static.wikia.nocookie.net/chrono/images/e/e0/Yakra.png"
+    image: "/images/bosses/yakra.png"
   },
   {
     id: "dragon_tank",
@@ -98,7 +98,7 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "DEVE destruir a Cabeça primeiro pois ela cura o tanque. Depois destrua as Rodas para parar o movimento. Use Lightning na Cabeça.",
     recommendedLevel: 6,
-    image: "https://static.wikia.nocookie.net/chrono/images/d/d5/Dragon_Tank.png"
+    image: "/images/bosses/dragon-tank.png"
   },
   {
     id: "masa_mune",
@@ -113,7 +113,7 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "Fase 1: Derrote Masa primeiro (cura menos). Fase 2: Quando fundidos, usam Tornado - mantenha HP alto. Use combos de Crono e Frog.",
     recommendedLevel: 12,
-    image: "https://static.wikia.nocookie.net/chrono/images/a/af/Masa_%26_Mune.png"
+    image: "/images/bosses/masa-mune.png"
   },
   {
     id: "nizbel",
@@ -128,7 +128,7 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "Use Lightning/Lightning2 para reduzir sua defesa, depois ataque com físicos. Quando ele liberar a energia elétrica, sua defesa volta. Repita o ciclo.",
     recommendedLevel: 18,
-    image: "https://static.wikia.nocookie.net/chrono/images/6/6c/Nizbel.png"
+    image: "/images/bosses/nizbel.png"
   },
   {
     id: "magus_boss",
@@ -144,7 +144,7 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "Magus muda de barreira elemental - ataque com o elemento oposto ou espere mudar. Quando criar barreira, pare de atacar até mudar. Em baixo HP, usa Dark Matter - mantenha HP acima de 300.",
     recommendedLevel: 25,
-    image: "https://static.wikia.nocookie.net/chrono/images/e/ed/Magus2.png"
+    image: "/images/bosses/magus.png"
   },
   {
     id: "nizbel2",
@@ -159,7 +159,7 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "Mesma estratégia do Nizbel original, mas ele contra-ataca mais forte. Mantenha curas constantes e use a estratégia de Lightning.",
     recommendedLevel: 28,
-    image: "https://static.wikia.nocookie.net/chrono/images/3/3b/Nizbel_II.png"
+    image: "/images/bosses/nizbel-ii.png"
   },
   {
     id: "azala",
@@ -174,7 +174,7 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "Derrote Azala primeiro - ela cura e dá buffs ao Tyrano. Depois foque no Black Tyrano. Quando Tyrano contar regressivamente, ele usará ataque de fogo devastador - cure imediatamente após.",
     recommendedLevel: 30,
-    image: "https://static.wikia.nocookie.net/chrono/images/8/8a/Black_Tyrano.png"
+    image: "/images/bosses/black-tyrano.png"
   },
   {
     id: "golem",
@@ -189,7 +189,7 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "Use apenas ataques físicos! Qualquer magia fará ele copiar e contra-atacar com versão mais forte. Equipar resistências não ajuda pois ele varia.",
     recommendedLevel: 32,
-    image: "https://static.wikia.nocookie.net/chrono/images/8/8b/Golem.png"
+    image: "/images/bosses/golem.png"
   },
   {
     id: "dalton_golem",
@@ -205,7 +205,7 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "Ataque com físicos enquanto evita magias. Dalton é arrogante e deixa brechas. Derrote o Golem para forçar Dalton a fugir.",
     recommendedLevel: 35,
-    image: "https://static.wikia.nocookie.net/chrono/images/7/77/Dalton.png"
+    image: "/images/bosses/dalton-plus.png"
   },
   {
     id: "giga_gaia",
@@ -221,7 +221,7 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "Destrua as mãos primeiro - a direita cura, a esquerda ataca. Quando ambas estiverem destruídas, ataque a cabeça. As mãos regeneram, então seja rápido.",
     recommendedLevel: 37,
-    image: "https://static.wikia.nocookie.net/chrono/images/1/14/Giga_Gaia.png"
+    image: "/images/bosses/giga-gaia.png"
   },
   {
     id: "queen_zeal",
@@ -236,7 +236,7 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "Ataque rápido e mantenha curas. Ela usa Hallation para reduzir HP de todos a 1. Esteja preparado para curar imediatamente após.",
     recommendedLevel: 40,
-    image: "https://static.wikia.nocookie.net/chrono/images/5/52/Queen_Zeal.png"
+    image: "/images/bosses/queen-zeal.png"
   },
   {
     id: "lavos_outer",
@@ -251,7 +251,7 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "Lavos imita ataques de bosses anteriores. Sobreviva às fases e ataque a cabeça. Quando abrir, ataque o núcleo interno.",
     recommendedLevel: 45,
-    image: "https://static.wikia.nocookie.net/chrono/images/a/a9/Lavos.png"
+    image: "/images/bosses/lavos-shell.png"
   },
   {
     id: "lavos_body",
@@ -266,7 +266,7 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "Luta em duas fases. Ataque os braços se necessário mas foque no corpo. Ataques de área funcionam bem.",
     recommendedLevel: 50,
-    image: "https://static.wikia.nocookie.net/chrono/images/7/71/Inner_Lavos.png"
+    image: "/images/bosses/lavos.png"
   },
   {
     id: "lavos_core",
@@ -281,7 +281,7 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "CUIDADO: Destrua o bit DIREITO primeiro, depois o bit ESQUERDO, só então ataque o CENTRO. Se destruir o centro antes, ele revive com HP cheio. Use Luminaire, Flare, Dark Matter.",
     recommendedLevel: 55,
-    image: "https://static.wikia.nocookie.net/chrono/images/5/50/Lavos_Core.png"
+    image: "/images/bosses/lavos-core.png"
   },
   {
     id: "son_of_sun",
@@ -297,7 +297,7 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "Não ataque o centro! Ataque as 5 chamas orbitantes para encontrar o core verdadeiro. O errado causa contra-ataque de fogo. Use resistência a fogo.",
     recommendedLevel: 38,
-    image: "https://static.wikia.nocookie.net/chrono/images/5/5a/Son_of_Sun.png"
+    image: "/images/bosses/son-of-sun.png"
   },
   {
     id: "rust_tyrano",
@@ -313,7 +313,7 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "Ele conta regressivamente para ataque devastador - cure após cada contagem zero. Ataques físicos fortes funcionam melhor. Luta de resistência.",
     recommendedLevel: 42,
-    image: "https://static.wikia.nocookie.net/chrono/images/b/bf/Rust_Tyrano.png"
+    image: "/images/bosses/rust-tyrano.png"
   },
   {
     id: "mother_brain",
@@ -329,7 +329,7 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "Destrua os 3 Displays primeiro - eles curam a Mother Brain. Use ataques elétricos. Esta batalha é emocionalmente importante para Robo.",
     recommendedLevel: 44,
-    image: "https://static.wikia.nocookie.net/chrono/images/f/fc/Mother_Brain.png"
+    image: "/images/bosses/mother-brain.png"
   },
   {
     id: "mega_mutant",
@@ -345,7 +345,7 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "Use ataques de fogo e mantenha curas constantes. Cuidado com ataques de status.",
     recommendedLevel: 48,
-    image: "https://static.wikia.nocookie.net/chrono/images/9/91/Mega_Mutant.png"
+    image: "/images/bosses/mega-mutant.png"
   },
   {
     id: "zeal_face",
@@ -360,7 +360,7 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "Ataque a mão esquerda (cura) primeiro, depois a direita, por último a cabeça. Hallation reduz HP a 1 - prepare MegaElixirs.",
     recommendedLevel: 52,
-    image: "https://static.wikia.nocookie.net/chrono/images/7/7e/Zeal_%28Boss%29.png"
+    image: "/images/bosses/zeal-face.png"
   },
   {
     id: "mammon_machine",
@@ -375,6 +375,6 @@ export const bosses: Enemy[] = [
     isBoss: true,
     strategy: "Ataque constantemente - ela absorve MP se você usar magia. Ataques físicos são seguros. Ela não pode ser derrotada completamente.",
     recommendedLevel: 50,
-    image: "https://static.wikia.nocookie.net/chrono/images/8/8e/Mammon_Machine.png"
+    image: "/images/bosses/mammon-machine.png"
   },
 ];
