@@ -223,7 +223,7 @@ export function Sidebar() {
           <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
             <Clock className="w-5 h-5 text-primary" />
           </div>
-          <span className="font-display text-sm font-bold">CHRONO LORE</span>
+          <span className="font-display text-sm font-bold">CHRONO WIKI</span>
         </Link>
         
         <ThemeToggle />
@@ -282,7 +282,7 @@ export function Sidebar() {
             {!collapsed && (
               <div>
                 <h1 className="font-pixel text-xs text-primary leading-tight">CHRONO</h1>
-                <h2 className="font-display text-sm font-bold text-foreground">LORE HUB</h2>
+                <h2 className="font-display text-sm font-bold text-foreground">WIKI</h2>
               </div>
             )}
           </Link>

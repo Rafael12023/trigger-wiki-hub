@@ -97,7 +97,8 @@ export const bosses: Enemy[] = [
     description: "Tanque mecânico com três partes: Cabeça (cura), Corpo e Rodas.",
     isBoss: true,
     strategy: "DEVE destruir a Cabeça primeiro pois ela cura o tanque. Depois destrua as Rodas para parar o movimento. Use Lightning na Cabeça.",
-    recommendedLevel: 6
+    recommendedLevel: 6,
+    image: "https://static.wikia.nocookie.net/chrono/images/d/d5/Dragon_Tank.png"
   },
   {
     id: "masa_mune",
@@ -111,7 +112,8 @@ export const bosses: Enemy[] = [
     description: "Os espíritos gêmeos que guardam a lendária espada Masamune. Primeiro lutam separados, depois se fundem.",
     isBoss: true,
     strategy: "Fase 1: Derrote Masa primeiro (cura menos). Fase 2: Quando fundidos, usam Tornado - mantenha HP alto. Use combos de Crono e Frog.",
-    recommendedLevel: 12
+    recommendedLevel: 12,
+    image: "https://static.wikia.nocookie.net/chrono/images/a/af/Masa_%26_Mune.png"
   },
   {
     id: "nizbel",
@@ -125,7 +127,8 @@ export const bosses: Enemy[] = [
     description: "Guarda-costas pessoal de Azala. Um Reptite massivo com defesa extremamente alta.",
     isBoss: true,
     strategy: "Use Lightning/Lightning2 para reduzir sua defesa, depois ataque com físicos. Quando ele liberar a energia elétrica, sua defesa volta. Repita o ciclo.",
-    recommendedLevel: 18
+    recommendedLevel: 18,
+    image: "https://static.wikia.nocookie.net/chrono/images/6/6c/Nizbel.png"
   },
   {
     id: "magus_boss",
@@ -140,7 +143,8 @@ export const bosses: Enemy[] = [
     description: "O líder dos Mystics e um dos magos mais poderosos. Invoca Lavos como parte de seu plano de vingança.",
     isBoss: true,
     strategy: "Magus muda de barreira elemental - ataque com o elemento oposto ou espere mudar. Quando criar barreira, pare de atacar até mudar. Em baixo HP, usa Dark Matter - mantenha HP acima de 300.",
-    recommendedLevel: 25
+    recommendedLevel: 25,
+    image: "https://static.wikia.nocookie.net/chrono/images/e/ed/Magus2.png"
   },
   {
     id: "nizbel2",
@@ -154,7 +158,8 @@ export const bosses: Enemy[] = [
     description: "Versão mais forte de Nizbel encontrada no covil de Azala.",
     isBoss: true,
     strategy: "Mesma estratégia do Nizbel original, mas ele contra-ataca mais forte. Mantenha curas constantes e use a estratégia de Lightning.",
-    recommendedLevel: 28
+    recommendedLevel: 28,
+    image: "https://static.wikia.nocookie.net/chrono/images/3/3b/Nizbel_II.png"
   },
   {
     id: "azala",
@@ -168,7 +173,8 @@ export const bosses: Enemy[] = [
     description: "A líder dos Reptites montada em um Tyrannosaurus Rex negro. A batalha final pela sobrevivência da espécie.",
     isBoss: true,
     strategy: "Derrote Azala primeiro - ela cura e dá buffs ao Tyrano. Depois foque no Black Tyrano. Quando Tyrano contar regressivamente, ele usará ataque de fogo devastador - cure imediatamente após.",
-    recommendedLevel: 30
+    recommendedLevel: 30,
+    image: "https://static.wikia.nocookie.net/chrono/images/8/8a/Black_Tyrano.png"
   },
   {
     id: "golem",
@@ -182,7 +188,8 @@ export const bosses: Enemy[] = [
     description: "Guardião de Zeal feito de rocha mágica. Copia elementos usados contra ele.",
     isBoss: true,
     strategy: "Use apenas ataques físicos! Qualquer magia fará ele copiar e contra-atacar com versão mais forte. Equipar resistências não ajuda pois ele varia.",
-    recommendedLevel: 32
+    recommendedLevel: 32,
+    image: "https://static.wikia.nocookie.net/chrono/images/8/8b/Golem.png"
   },
   {
     id: "dalton_golem",
@@ -197,7 +204,8 @@ export const bosses: Enemy[] = [
     description: "Dalton montado em seu Golem Boss melhorado após roubar o Epoch.",
     isBoss: true,
     strategy: "Ataque com físicos enquanto evita magias. Dalton é arrogante e deixa brechas. Derrote o Golem para forçar Dalton a fugir.",
-    recommendedLevel: 35
+    recommendedLevel: 35,
+    image: "https://static.wikia.nocookie.net/chrono/images/7/77/Dalton.png"
   },
   {
     id: "giga_gaia",
@@ -212,7 +220,8 @@ export const bosses: Enemy[] = [
     description: "Guardião titânico que mantém a Montanha Woe suspensa no ar.",
     isBoss: true,
     strategy: "Destrua as mãos primeiro - a direita cura, a esquerda ataca. Quando ambas estiverem destruídas, ataque a cabeça. As mãos regeneram, então seja rápido.",
-    recommendedLevel: 37
+    recommendedLevel: 37,
+    image: "https://static.wikia.nocookie.net/chrono/images/1/14/Giga_Gaia.png"
   },
   {
     id: "queen_zeal",
@@ -226,7 +235,8 @@ export const bosses: Enemy[] = [
     description: "A Rainha de Zeal corrompida pelo poder de Lavos. Primeira forma antes da fusão.",
     isBoss: true,
     strategy: "Ataque rápido e mantenha curas. Ela usa Hallation para reduzir HP de todos a 1. Esteja preparado para curar imediatamente após.",
-    recommendedLevel: 40
+    recommendedLevel: 40,
+    image: "https://static.wikia.nocookie.net/chrono/images/5/52/Queen_Zeal.png"
   },
   {
     id: "lavos_outer",
@@ -240,7 +250,8 @@ export const bosses: Enemy[] = [
     description: "A forma externa de Lavos, o parasita alienígena que ameaça destruir o mundo.",
     isBoss: true,
     strategy: "Lavos imita ataques de bosses anteriores. Sobreviva às fases e ataque a cabeça. Quando abrir, ataque o núcleo interno.",
-    recommendedLevel: 45
+    recommendedLevel: 45,
+    image: "https://static.wikia.nocookie.net/chrono/images/a/a9/Lavos.png"
   },
   {
     id: "lavos_body",
@@ -254,7 +265,8 @@ export const bosses: Enemy[] = [
     description: "O corpo central de Lavos em forma humanoide.",
     isBoss: true,
     strategy: "Luta em duas fases. Ataque os braços se necessário mas foque no corpo. Ataques de área funcionam bem.",
-    recommendedLevel: 50
+    recommendedLevel: 50,
+    image: "https://static.wikia.nocookie.net/chrono/images/7/71/Inner_Lavos.png"
   },
   {
     id: "lavos_core",
@@ -268,7 +280,8 @@ export const bosses: Enemy[] = [
     description: "O verdadeiro núcleo de Lavos - a batalha final.",
     isBoss: true,
     strategy: "CUIDADO: Destrua o bit DIREITO primeiro, depois o bit ESQUERDO, só então ataque o CENTRO. Se destruir o centro antes, ele revive com HP cheio. Use Luminaire, Flare, Dark Matter.",
-    recommendedLevel: 55
+    recommendedLevel: 55,
+    image: "https://static.wikia.nocookie.net/chrono/images/5/50/Lavos_Core.png"
   },
   {
     id: "son_of_sun",
@@ -283,7 +296,8 @@ export const bosses: Enemy[] = [
     description: "Uma entidade solar guardando o Sun Stone no palácio do sol.",
     isBoss: true,
     strategy: "Não ataque o centro! Ataque as 5 chamas orbitantes para encontrar o core verdadeiro. O errado causa contra-ataque de fogo. Use resistência a fogo.",
-    recommendedLevel: 38
+    recommendedLevel: 38,
+    image: "https://static.wikia.nocookie.net/chrono/images/5/5a/Son_of_Sun.png"
   },
   {
     id: "rust_tyrano",
@@ -298,7 +312,8 @@ export const bosses: Enemy[] = [
     description: "O esqueleto fossilizado do Black Tyrano, animado por energia residual.",
     isBoss: true,
     strategy: "Ele conta regressivamente para ataque devastador - cure após cada contagem zero. Ataques físicos fortes funcionam melhor. Luta de resistência.",
-    recommendedLevel: 42
+    recommendedLevel: 42,
+    image: "https://static.wikia.nocookie.net/chrono/images/b/bf/Rust_Tyrano.png"
   },
   {
     id: "mother_brain",
@@ -313,7 +328,8 @@ export const bosses: Enemy[] = [
     description: "O computador central que controla todos os robôs do futuro. Criador de Robo.",
     isBoss: true,
     strategy: "Destrua os 3 Displays primeiro - eles curam a Mother Brain. Use ataques elétricos. Esta batalha é emocionalmente importante para Robo.",
-    recommendedLevel: 44
+    recommendedLevel: 44,
+    image: "https://static.wikia.nocookie.net/chrono/images/f/fc/Mother_Brain.png"
   },
   {
     id: "mega_mutant",
@@ -328,7 +344,8 @@ export const bosses: Enemy[] = [
     description: "Mutante gigante criado pela energia de Lavos no Black Omen.",
     isBoss: true,
     strategy: "Use ataques de fogo e mantenha curas constantes. Cuidado com ataques de status.",
-    recommendedLevel: 48
+    recommendedLevel: 48,
+    image: "https://static.wikia.nocookie.net/chrono/images/9/91/Mega_Mutant.png"
   },
   {
     id: "zeal_face",
@@ -342,7 +359,8 @@ export const bosses: Enemy[] = [
     description: "Forma monstruosa da Rainha Zeal fundida com o poder de Lavos.",
     isBoss: true,
     strategy: "Ataque a mão esquerda (cura) primeiro, depois a direita, por último a cabeça. Hallation reduz HP a 1 - prepare MegaElixirs.",
-    recommendedLevel: 52
+    recommendedLevel: 52,
+    image: "https://static.wikia.nocookie.net/chrono/images/7/7e/Zeal_%28Boss%29.png"
   },
   {
     id: "mammon_machine",
@@ -356,6 +374,7 @@ export const bosses: Enemy[] = [
     description: "A máquina que absorve energia de Lavos, a causa da queda de Zeal.",
     isBoss: true,
     strategy: "Ataque constantemente - ela absorve MP se você usar magia. Ataques físicos são seguros. Ela não pode ser derrotada completamente.",
-    recommendedLevel: 50
+    recommendedLevel: 50,
+    image: "https://static.wikia.nocookie.net/chrono/images/8/8e/Mammon_Machine.png"
   },
 ];
