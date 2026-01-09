@@ -18,11 +18,11 @@ function EnemyCard({ enemy }: { enemy: Enemy }) {
       <div className="flex gap-4 items-start">
         {/* Image */}
         {enemy.image && (
-          <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-chrono-darker border border-border">
+          <div className={`flex-shrink-0 rounded-lg overflow-hidden bg-chrono-darker border border-border ${enemy.isBoss ? 'w-20 h-20' : 'w-24 h-24'}`}>
             <img 
               src={enemy.image} 
               alt={enemy.name}
-              className="w-full h-full object-contain"
+              className="w-full h-full object-contain p-1"
             />
           </div>
         )}
