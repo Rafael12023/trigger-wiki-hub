@@ -15,13 +15,24 @@ function EnemyCard({ enemy }: { enemy: Enemy }) {
       className={`card-chrono p-4 cursor-pointer transition-all ${expanded ? 'ring-2 ring-primary' : ''}`}
       onClick={() => setExpanded(!expanded)}
     >
-      <div className="flex justify-between items-start">
-        <div className="flex-1">
+      <div className="flex gap-4 items-start">
+        {/* Image */}
+        {enemy.image && (
+          <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-chrono-darker border border-border">
+            <img 
+              src={enemy.image} 
+              alt={enemy.name}
+              className="w-full h-full object-contain"
+            />
+          </div>
+        )}
+        
+        <div className="flex-1 min-w-0">
           <h3 className={`font-medium ${enemy.isBoss ? 'text-chrono-red' : 'text-foreground'}`}>
             {enemy.name}
             {enemy.isBoss && <span className="ml-2 text-xs bg-chrono-red/20 px-2 py-0.5 rounded">BOSS</span>}
           </h3>
-          <p className="text-muted-foreground text-sm mt-1">{enemy.description}</p>
+          <p className="text-muted-foreground text-sm mt-1 line-clamp-2">{enemy.description}</p>
         </div>
       </div>
       
