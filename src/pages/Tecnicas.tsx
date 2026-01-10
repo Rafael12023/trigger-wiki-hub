@@ -177,10 +177,25 @@ const characterGifs: Record<string, string> = {
   "Marle": "/images/techs/marle-attack.gif",
   "Lucca": "/images/techs/lucca-attack.gif",
   "Frog": "/images/techs/frog-attack.gif",
-  "Robo": "/images/techs/triple-tech.gif",
-  "Ayla": "/images/techs/battle-demo.gif",
-  "Magus": "/images/techs/frog-anime.gif",
+  "Robo": "/images/techs/robo-attack.gif",
+  "Ayla": "/images/techs/ayla-attack.gif",
+  "Magus": "/images/techs/magus-castle.gif",
 };
+
+// GIFs para Double Techs
+const doubleTechGifs = [
+  "/images/techs/x-strike.gif",
+  "/images/techs/fire-whirl.gif",
+  "/images/techs/ice-water.gif",
+  "/images/techs/dual-tech-lucca-robo.gif",
+];
+
+// GIFs para Triple Techs
+const tripleTechGifs = [
+  "/images/techs/triple-tech.gif",
+  "/images/techs/lavos-battle.gif",
+  "/images/techs/frog-tech.gif",
+];
 
 export default function Tecnicas() {
   return (
@@ -304,10 +319,19 @@ export default function Tecnicas() {
 
           <TabsContent value="triple">
             <div className="card-chrono p-6">
-              <h3 className="font-display font-bold text-foreground mb-4">Triple Techs (Técnicas Triplas)</h3>
-              <p className="text-muted-foreground mb-6">
-                As mais poderosas combinações, requerem três personagens. Algumas precisam de itens especiais (Rocks).
-              </p>
+              <div className="flex flex-col md:flex-row gap-6 mb-6">
+                <div className="flex gap-2 flex-wrap">
+                  {tripleTechGifs.map((gif, i) => (
+                    <img key={i} src={gif} alt={`Triple Tech ${i+1}`} className="w-32 h-24 object-cover rounded-lg border border-border" />
+                  ))}
+                </div>
+                <div>
+                  <h3 className="font-display font-bold text-foreground mb-2">Triple Techs (Técnicas Triplas)</h3>
+                  <p className="text-muted-foreground">
+                    As mais poderosas combinações, requerem três personagens. Algumas precisam de itens especiais (Rocks).
+                  </p>
+                </div>
+              </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
