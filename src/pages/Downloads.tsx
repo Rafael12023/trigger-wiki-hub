@@ -27,7 +27,7 @@ const romFiles: RomFile[] = [
     title: "Chrono Trigger (Português BR)",
     platform: "Super Nintendo",
     platformIcon: <Gamepad2 className="w-5 h-5" />,
-    region: "PTBR",
+    region: "PT-BR",
     fileSize: "4.097 MB",
     fileName: "Chrono Trigger (BR).smc",
     downloadUrl: "/roms/Chrono Trigger (BR).smc",
@@ -39,7 +39,7 @@ const romFiles: RomFile[] = [
 const hackFiles: RomFile[] = [
   {
     id: "HackbyGabriel",
-    title: "Chrono Trigger: HackbyGabriel.smc",
+    title: "Chrono Trigger (HackbyGabriel)",
     platform: "Super Nintendo",
     platformIcon: <Gamepad2 className="w-5 h-5" />,
     region: "USA",
