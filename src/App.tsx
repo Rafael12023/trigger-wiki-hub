@@ -25,6 +25,7 @@ import Lore from "./pages/Lore";
 import Extras from "./pages/Extras";
 import Tecnicas from "./pages/Tecnicas";
 import Mapas from "./pages/Mapas";
+import Downloads from "./pages/Downloads";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +57,7 @@ const App = () => (
             <Route path="/extras" element={<Extras />} />
             <Route path="/tecnicas" element={<Tecnicas />} />
             <Route path="/mapas" element={<Mapas />} />
+            <Route path="/downloads" element={<Downloads />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

@@ -21,7 +21,8 @@ import {
   X,
   Home,
   PanelLeftClose,
-  PanelLeft
+  PanelLeft,
+  Download
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -75,6 +76,7 @@ const navItems: NavItem[] = [
   { label: "Versões", href: "/versoes", icon: <Gamepad2 className="w-5 h-5" /> },
   { label: "Lore & Teorias", href: "/lore", icon: <BookOpen className="w-5 h-5" /> },
   { label: "Extras", href: "/extras", icon: <Gift className="w-5 h-5" /> },
+  { label: "Downloads", href: "/downloads", icon: <Download className="w-5 h-5" /> },
 ];
 
 export function Sidebar() {
