@@ -152,7 +152,7 @@ const Index = () => {
           </div>
           
           <h1 className="font-pixel text-2xl md:text-4xl lg:text-5xl text-primary mb-4 leading-relaxed">
-            CHRONO LORE HUB
+            CHRONO TRIGGER HUB
           </h1>
           
           <p className="font-display text-xl md:text-2xl lg:text-3xl text-foreground mb-4">
