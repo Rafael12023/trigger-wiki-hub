@@ -33,28 +33,6 @@ const romFiles: RomFile[] = [
     downloadUrl: "/roms/Chrono Trigger (BR).smc",
     description: "Versão americana original do SNES Traduzida em PTBR. A versão mais popular e recomendada para primeira jogada.",
   },
-  {
-    id: "snes-japan",
-    title: "Chrono Trigger (Japan)",
-    platform: "Super Nintendo",
-    platformIcon: <Gamepad2 className="w-5 h-5" />,
-    region: "Japan",
-    fileSize: "4 MB",
-    fileName: "chrono-trigger-japan.sfc",
-    downloadUrl: "/roms/chrono-trigger-japan.sfc",
-    description: "Versão japonesa original. Contém textos em japonês e algumas diferenças sutis.",
-  },
-  {
-    id: "nds",
-    title: "Chrono Trigger (DS)",
-    platform: "Nintendo DS",
-    platformIcon: <Monitor className="w-5 h-5" />,
-    region: "USA",
-    fileSize: "64 MB",
-    fileName: "chrono-trigger-ds.nds",
-    downloadUrl: "/roms/chrono-trigger-ds.nds",
-    description: "Versão para Nintendo DS com conteúdo extra, novo final e dungeon exclusiva.",
-  },
 ];
 
 // ROM Hacks disponíveis para download
@@ -69,28 +47,6 @@ const hackFiles: RomFile[] = [
     fileName: "Chrono Trigger (HackbyGabriel).smc",
     downloadUrl: "/roms/Chrono Trigger (HackbyGabriel).smc",
     description: "Versão modificada com a dificuldade aumentada, itens novos e magias trocadas. (Nem o proprio criador conseguiu derrotar a ultima evolução do Lavos)",
-  },
-  {
-    id: "crimson-echoes",
-    title: "Chrono Trigger: Crimson Echoes",
-    platform: "Super Nintendo",
-    platformIcon: <Gamepad2 className="w-5 h-5" />,
-    region: "USA",
-    fileSize: "4 MB",
-    fileName: "chrono-trigger-crimson-echoes.sfc",
-    downloadUrl: "/roms/chrono-trigger-crimson-echoes.sfc",
-    description: "História que conecta Chrono Trigger a Chrono Cross. Projeto quase cancelado pela Square Enix.",
-  },
-  {
-    id: "prophets-guile",
-    title: "Chrono Trigger: Prophet's Guile",
-    platform: "Super Nintendo",
-    platformIcon: <Gamepad2 className="w-5 h-5" />,
-    region: "USA",
-    fileSize: "4 MB",
-    fileName: "chrono-trigger-prophets-guile.sfc",
-    downloadUrl: "/roms/chrono-trigger-prophets-guile.sfc",
-    description: "Prequel curto que mostra a história de Magus após cair no portal temporal.",
   },
 ];
 
