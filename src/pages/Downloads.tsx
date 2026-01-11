@@ -23,15 +23,15 @@ interface RomFile {
 // 2. Adicione um novo objeto neste array com os dados da ROM
 const romFiles: RomFile[] = [
   {
-    id: "snes-usa",
-    title: "Chrono Trigger (USA)",
+    id: "snes-pt-br",
+    title: "Chrono Trigger (Português BR)",
     platform: "Super Nintendo",
     platformIcon: <Gamepad2 className="w-5 h-5" />,
-    region: "USA",
-    fileSize: "4 MB",
-    fileName: "chrono-trigger-usa.sfc",
-    downloadUrl: "/roms/chrono-trigger-usa.sfc",
-    description: "Versão americana original do SNES. A versão mais popular e recomendada para primeira jogada.",
+    region: "PTBR",
+    fileSize: "4.097 MB",
+    fileName: "Chrono Trigger (BR).smc",
+    downloadUrl: "/roms/Chrono Trigger (BR).smc",
+    description: "Versão americana original do SNES Traduzida em PTBR. A versão mais popular e recomendada para primeira jogada.",
   },
   {
     id: "snes-japan",
@@ -60,15 +60,15 @@ const romFiles: RomFile[] = [
 // ROM Hacks disponíveis para download
 const hackFiles: RomFile[] = [
   {
-    id: "flames-of-eternity",
-    title: "Chrono Trigger: Flames of Eternity",
+    id: "HackbyGabriel",
+    title: "Chrono Trigger: HackbyGabriel.smc",
     platform: "Super Nintendo",
     platformIcon: <Gamepad2 className="w-5 h-5" />,
     region: "USA",
-    fileSize: "4 MB",
-    fileName: "chrono-trigger-flames-of-eternity.sfc",
-    downloadUrl: "/roms/chrono-trigger-flames-of-eternity.sfc",
-    description: "Continuação não oficial com nova história, personagens e áreas. Um dos hacks mais completos.",
+    fileSize: "6.144 MB",
+    fileName: "Chrono Trigger (HackbyGabriel).smc",
+    downloadUrl: "/roms/Chrono Trigger (HackbyGabriel).smc",
+    description: "Versão modificada com a dificuldade aumentada, itens novos e magias trocadas. (Nem o proprio criador conseguiu derrotar a ultima evolução do Lavos)",
   },
   {
     id: "crimson-echoes",
