@@ -171,31 +171,6 @@ const tripleTechs = [
   { name: "Gatling Kick", characters: "Lucca + Robo + Ayla", mp: 15, description: "Série de chutes e tiros" },
 ];
 
-// GIFs para cada personagem
-const characterGifs: Record<string, string> = {
-  "Crono": "/images/techs/crono-attack.gif",
-  "Marle": "/images/techs/marle-attack.gif",
-  "Lucca": "/images/techs/lucca-attack.gif",
-  "Frog": "/images/techs/frog-attack.gif",
-  "Robo": "/images/techs/robo-attack.gif",
-  "Ayla": "/images/techs/ayla-attack.gif",
-  "Magus": "/images/techs/magus-castle.gif",
-};
-
-// GIFs para Double Techs
-const doubleTechGifs = [
-  "/images/techs/x-strike.gif",
-  "/images/techs/fire-whirl.gif",
-  "/images/techs/ice-water.gif",
-  "/images/techs/dual-tech-lucca-robo.gif",
-];
-
-// GIFs para Triple Techs
-const tripleTechGifs = [
-  "/images/techs/triple-tech.gif",
-  "/images/techs/lavos-battle.gif",
-  "/images/techs/frog-tech.gif",
-];
 
 export default function Tecnicas() {
   return (
@@ -218,27 +193,10 @@ export default function Tecnicas() {
             <div className="space-y-8">
               {characterTechs.map((char) => (
                 <div key={char.character} className="card-chrono p-6">
-                  <div className="flex flex-col md:flex-row gap-6 mb-4">
-                    {/* GIF de demonstração */}
-                    {characterGifs[char.character] && (
-                      <div className="flex-shrink-0 w-full md:w-48 h-32 md:h-auto rounded-lg overflow-hidden bg-chrono-darker border border-border">
-                        <img 
-                          src={characterGifs[char.character]} 
-                          alt={`${char.character} em ação`}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    )}
-                    <div className="flex-1">
-                      <h3 className={`font-display font-bold text-xl text-${char.color} mb-2 flex items-center gap-2`}>
-                        {char.icon} {char.character}
-                        <span className="text-sm font-normal text-muted-foreground ml-2">Elemento: {char.element}</span>
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        Confira as técnicas de {char.character} e seus efeitos em batalha.
-                      </p>
-                    </div>
-                  </div>
+                  <h3 className={`font-display font-bold text-xl text-${char.color} mb-4 flex items-center gap-2`}>
+                    {char.icon} {char.character}
+                    <span className="text-sm font-normal text-muted-foreground ml-2">Elemento: {char.element}</span>
+                  </h3>
                   <div className="overflow-x-auto">
                     <table className="w-full text-sm">
                       <thead>
@@ -275,18 +233,10 @@ export default function Tecnicas() {
 
           <TabsContent value="double">
             <div className="card-chrono p-6">
-              <div className="flex flex-col md:flex-row gap-6 mb-6">
-                <div className="flex gap-2">
-                  <img src="/images/techs/x-strike.gif" alt="X-Strike" className="w-36 h-28 object-cover rounded-lg border border-border" />
-                  <img src="/images/techs/fire-whirl.gif" alt="Fire Whirl" className="w-36 h-28 object-cover rounded-lg border border-border" />
-                </div>
-                <div>
-                  <h3 className="font-display font-bold text-foreground mb-2">Double Techs (Técnicas Duplas)</h3>
-                  <p className="text-muted-foreground">
-                    Combinações de dois personagens. Cada personagem precisa ter aprendido a Single Tech base.
-                  </p>
-                </div>
-              </div>
+              <h3 className="font-display font-bold text-foreground mb-2">Double Techs (Técnicas Duplas)</h3>
+              <p className="text-muted-foreground mb-6">
+                Combinações de dois personagens. Cada personagem precisa ter aprendido a Single Tech base.
+              </p>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
@@ -319,19 +269,10 @@ export default function Tecnicas() {
 
           <TabsContent value="triple">
             <div className="card-chrono p-6">
-              <div className="flex flex-col md:flex-row gap-6 mb-6">
-                <div className="flex gap-2 flex-wrap">
-                  {tripleTechGifs.map((gif, i) => (
-                    <img key={i} src={gif} alt={`Triple Tech ${i+1}`} className="w-32 h-24 object-cover rounded-lg border border-border" />
-                  ))}
-                </div>
-                <div>
-                  <h3 className="font-display font-bold text-foreground mb-2">Triple Techs (Técnicas Triplas)</h3>
-                  <p className="text-muted-foreground">
-                    As mais poderosas combinações, requerem três personagens. Algumas precisam de itens especiais (Rocks).
-                  </p>
-                </div>
-              </div>
+              <h3 className="font-display font-bold text-foreground mb-2">Triple Techs (Técnicas Triplas)</h3>
+              <p className="text-muted-foreground mb-6">
+                As mais poderosas combinações, requerem três personagens. Algumas precisam de itens especiais (Rocks).
+              </p>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
