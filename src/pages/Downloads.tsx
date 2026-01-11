@@ -1,6 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeader } from "@/components/ui/section-header";
-import { Download, HardDrive, AlertTriangle, Gamepad2, Monitor, Smartphone } from "lucide-react";
+import { Download, HardDrive, AlertTriangle, Gamepad2, Monitor, Smartphone, Wrench } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -54,6 +54,43 @@ const romFiles: RomFile[] = [
     fileName: "chrono-trigger-ds.nds",
     downloadUrl: "/roms/chrono-trigger-ds.nds",
     description: "Versão para Nintendo DS com conteúdo extra, novo final e dungeon exclusiva.",
+  },
+];
+
+// ROM Hacks disponíveis para download
+const hackFiles: RomFile[] = [
+  {
+    id: "flames-of-eternity",
+    title: "Chrono Trigger: Flames of Eternity",
+    platform: "Super Nintendo",
+    platformIcon: <Gamepad2 className="w-5 h-5" />,
+    region: "USA",
+    fileSize: "4 MB",
+    fileName: "chrono-trigger-flames-of-eternity.sfc",
+    downloadUrl: "/roms/chrono-trigger-flames-of-eternity.sfc",
+    description: "Continuação não oficial com nova história, personagens e áreas. Um dos hacks mais completos.",
+  },
+  {
+    id: "crimson-echoes",
+    title: "Chrono Trigger: Crimson Echoes",
+    platform: "Super Nintendo",
+    platformIcon: <Gamepad2 className="w-5 h-5" />,
+    region: "USA",
+    fileSize: "4 MB",
+    fileName: "chrono-trigger-crimson-echoes.sfc",
+    downloadUrl: "/roms/chrono-trigger-crimson-echoes.sfc",
+    description: "História que conecta Chrono Trigger a Chrono Cross. Projeto quase cancelado pela Square Enix.",
+  },
+  {
+    id: "prophets-guile",
+    title: "Chrono Trigger: Prophet's Guile",
+    platform: "Super Nintendo",
+    platformIcon: <Gamepad2 className="w-5 h-5" />,
+    region: "USA",
+    fileSize: "4 MB",
+    fileName: "chrono-trigger-prophets-guile.sfc",
+    downloadUrl: "/roms/chrono-trigger-prophets-guile.sfc",
+    description: "Prequel curto que mostra a história de Magus após cair no portal temporal.",
   },
 ];
 
@@ -132,6 +169,59 @@ export default function Downloads() {
           ))}
         </div>
 
+        {/* Seção de ROM Hacks */}
+        <div className="mt-12">
+          <h2 className="text-2xl font-bold flex items-center gap-2 mb-6">
+            <Wrench className="w-6 h-6 text-primary" />
+            ROM Hacks
+          </h2>
+          <p className="text-muted-foreground mb-6">
+            Modificações criadas por fãs com novas histórias, personagens e mecânicas.
+          </p>
+          <div className="grid gap-4">
+            {hackFiles.map((rom) => (
+              <Card key={rom.id} className="hover:border-primary/50 transition-colors">
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 rounded-lg bg-orange-500/20 text-orange-500">
+                        {rom.platformIcon}
+                      </div>
+                      <div>
+                        <CardTitle className="text-lg">{rom.title}</CardTitle>
+                        <CardDescription className="flex items-center gap-2 mt-1">
+                          <span>{rom.platform}</span>
+                          <Badge variant="secondary" className="text-xs bg-orange-500/20 text-orange-500">
+                            Hack
+                          </Badge>
+                        </CardDescription>
+                      </div>
+                    </div>
+                    <Badge variant="outline" className="flex items-center gap-1">
+                      <HardDrive className="w-3 h-3" />
+                      {rom.fileSize}
+                    </Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {rom.description}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <code className="text-xs bg-muted px-2 py-1 rounded">
+                      {rom.fileName}
+                    </code>
+                    <Button onClick={() => handleDownload(rom)} variant="outline" className="gap-2">
+                      <Download className="w-4 h-4" />
+                      Download
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
         {/* Instruções */}
         <Card className="mt-8">
           <CardHeader>
@@ -159,19 +249,6 @@ export default function Downloads() {
                 <li>Aproveite a aventura!</li>
               </ol>
             </div>
-          </CardContent>
-        </Card>
-
-        {/* Nota para o desenvolvedor */}
-        <Card className="mt-8 border-primary/50 bg-primary/5">
-          <CardHeader>
-            <CardTitle className="text-sm text-primary">📁 Nota para Desenvolvedor</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground">
-              Para adicionar novas ROMs, coloque os arquivos na pasta <code className="bg-muted px-1 rounded">public/roms/</code> e 
-              edite o array <code className="bg-muted px-1 rounded">romFiles</code> no arquivo <code className="bg-muted px-1 rounded">src/pages/Downloads.tsx</code>.
-            </p>
           </CardContent>
         </Card>
       </div>
