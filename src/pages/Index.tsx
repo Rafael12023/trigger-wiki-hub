@@ -297,7 +297,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Clock className="w-5 h-5 text-primary" />
-            <span className="font-pixel text-xs text-primary">CHRONO LORE HUB</span>
+            <span className="font-pixel text-xs text-primary">CHRONO TRIGGER HUB</span>
           </div>
           <p className="text-muted-foreground text-sm">
             Um projeto de fãs. Chrono Trigger © Square Enix.
