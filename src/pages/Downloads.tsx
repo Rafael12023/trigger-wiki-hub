@@ -15,12 +15,14 @@ interface RomFile {
   fileName: string;
   downloadUrl: string;
   description: string;
+  coverImage: string;
 }
 
 // ROMs disponíveis para download
 // Para adicionar uma nova ROM:
 // 1. Coloque o arquivo na pasta public/roms/
-// 2. Adicione um novo objeto neste array com os dados da ROM
+// 2. Coloque a imagem da capa na pasta public/images/covers/
+// 3. Adicione um novo objeto neste array com os dados da ROM
 const romFiles: RomFile[] = [
   {
     id: "snes-pt-br",
@@ -32,6 +34,7 @@ const romFiles: RomFile[] = [
     fileName: "Chrono Trigger (BR).smc",
     downloadUrl: "/roms/Chrono Trigger (BR).smc",
     description: "Versão americana original do SNES Traduzida em PTBR. A versão mais popular e recomendada para primeira jogada.",
+    coverImage: "/images/covers/chrono-trigger-snes.jpg",
   },
 ];
 
@@ -47,6 +50,7 @@ const hackFiles: RomFile[] = [
     fileName: "Chrono Trigger (HackbyGabriel).smc",
     downloadUrl: "/roms/Chrono Trigger (HackbyGabriel).smc",
     description: "Versão modificada com a dificuldade aumentada, itens novos e magias trocadas. (Nem o proprio criador conseguiu derrotar a ultima evolução do Lavos)",
+    coverImage: "/images/covers/chrono-trigger-hack.jpg",
   },
 ];
 
@@ -83,44 +87,61 @@ export default function Downloads() {
 
         {/* Lista de ROMs */}
         <div className="grid gap-4">
-          {romFiles.map((rom) => (
-            <Card key={rom.id} className="hover:border-primary/50 transition-colors">
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-primary/20 text-primary">
-                      {rom.platformIcon}
-                    </div>
-                    <div>
-                      <CardTitle className="text-lg">{rom.title}</CardTitle>
-                      <CardDescription className="flex items-center gap-2 mt-1">
-                        <span>{rom.platform}</span>
-                        <Badge variant="secondary" className="text-xs">
-                          {rom.region}
-                        </Badge>
-                      </CardDescription>
-                    </div>
-                  </div>
-                  <Badge variant="outline" className="flex items-center gap-1">
-                    <HardDrive className="w-3 h-3" />
-                    {rom.fileSize}
-                  </Badge>
+        {romFiles.map((rom) => (
+            <Card key={rom.id} className="hover:border-primary/50 transition-colors overflow-hidden">
+              <div className="flex">
+                {/* Capa do Jogo */}
+                <div className="w-32 h-44 flex-shrink-0 bg-muted">
+                  <img 
+                    src={rom.coverImage} 
+                    alt={`Capa de ${rom.title}`}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = '/placeholder.svg';
+                    }}
+                  />
                 </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground mb-4">
-                  {rom.description}
-                </p>
-                <div className="flex items-center justify-between">
-                  <code className="text-xs bg-muted px-2 py-1 rounded">
-                    {rom.fileName}
-                  </code>
-                  <Button onClick={() => handleDownload(rom)} className="gap-2">
-                    <Download className="w-4 h-4" />
-                    Download
-                  </Button>
+                
+                {/* Conteúdo */}
+                <div className="flex-1">
+                  <CardHeader className="pb-2">
+                    <div className="flex items-start justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 rounded-lg bg-primary/20 text-primary">
+                          {rom.platformIcon}
+                        </div>
+                        <div>
+                          <CardTitle className="text-lg">{rom.title}</CardTitle>
+                          <CardDescription className="flex items-center gap-2 mt-1">
+                            <span>{rom.platform}</span>
+                            <Badge variant="secondary" className="text-xs">
+                              {rom.region}
+                            </Badge>
+                          </CardDescription>
+                        </div>
+                      </div>
+                      <Badge variant="outline" className="flex items-center gap-1">
+                        <HardDrive className="w-3 h-3" />
+                        {rom.fileSize}
+                      </Badge>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <p className="text-sm text-muted-foreground mb-3">
+                      {rom.description}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <code className="text-xs bg-muted px-2 py-1 rounded">
+                        {rom.fileName}
+                      </code>
+                      <Button onClick={() => handleDownload(rom)} className="gap-2">
+                        <Download className="w-4 h-4" />
+                        Download
+                      </Button>
+                    </div>
+                  </CardContent>
                 </div>
-              </CardContent>
+              </div>
             </Card>
           ))}
         </div>
@@ -136,43 +157,60 @@ export default function Downloads() {
           </p>
           <div className="grid gap-4">
             {hackFiles.map((rom) => (
-              <Card key={rom.id} className="hover:border-primary/50 transition-colors">
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-lg bg-orange-500/20 text-orange-500">
-                        {rom.platformIcon}
-                      </div>
-                      <div>
-                        <CardTitle className="text-lg">{rom.title}</CardTitle>
-                        <CardDescription className="flex items-center gap-2 mt-1">
-                          <span>{rom.platform}</span>
-                          <Badge variant="secondary" className="text-xs bg-orange-500/20 text-orange-500">
-                            Hack
-                          </Badge>
-                        </CardDescription>
-                      </div>
-                    </div>
-                    <Badge variant="outline" className="flex items-center gap-1">
-                      <HardDrive className="w-3 h-3" />
-                      {rom.fileSize}
-                    </Badge>
+              <Card key={rom.id} className="hover:border-primary/50 transition-colors overflow-hidden">
+                <div className="flex">
+                  {/* Capa do Hack */}
+                  <div className="w-32 h-44 flex-shrink-0 bg-muted">
+                    <img 
+                      src={rom.coverImage} 
+                      alt={`Capa de ${rom.title}`}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src = '/placeholder.svg';
+                      }}
+                    />
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {rom.description}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <code className="text-xs bg-muted px-2 py-1 rounded">
-                      {rom.fileName}
-                    </code>
-                    <Button onClick={() => handleDownload(rom)} variant="outline" className="gap-2">
-                      <Download className="w-4 h-4" />
-                      Download
-                    </Button>
+                  
+                  {/* Conteúdo */}
+                  <div className="flex-1">
+                    <CardHeader className="pb-2">
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="p-2 rounded-lg bg-orange-500/20 text-orange-500">
+                            {rom.platformIcon}
+                          </div>
+                          <div>
+                            <CardTitle className="text-lg">{rom.title}</CardTitle>
+                            <CardDescription className="flex items-center gap-2 mt-1">
+                              <span>{rom.platform}</span>
+                              <Badge variant="secondary" className="text-xs bg-orange-500/20 text-orange-500">
+                                Hack
+                              </Badge>
+                            </CardDescription>
+                          </div>
+                        </div>
+                        <Badge variant="outline" className="flex items-center gap-1">
+                          <HardDrive className="w-3 h-3" />
+                          {rom.fileSize}
+                        </Badge>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="pt-0">
+                      <p className="text-sm text-muted-foreground mb-3">
+                        {rom.description}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <code className="text-xs bg-muted px-2 py-1 rounded">
+                          {rom.fileName}
+                        </code>
+                        <Button onClick={() => handleDownload(rom)} variant="outline" className="gap-2">
+                          <Download className="w-4 h-4" />
+                          Download
+                        </Button>
+                      </div>
+                    </CardContent>
                   </div>
-                </CardContent>
+                </div>
               </Card>
             ))}
           </div>
