@@ -1,10 +1,11 @@
+import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeader } from "@/components/ui/section-header";
-import { Download, HardDrive, AlertTriangle, Gamepad2, Monitor, Smartphone, Wrench } from "lucide-react";
+import { Download, HardDrive, AlertTriangle, Gamepad2, Monitor, Smartphone, Wrench, X } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 interface RomFile {
   id: string;
   title: string;
@@ -55,11 +56,16 @@ const hackFiles: RomFile[] = [
 ];
 
 export default function Downloads() {
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
+
   const handleDownload = (rom: RomFile) => {
     // Abre o link de download
     window.open(rom.downloadUrl, '_blank');
   };
 
+  const handleImageClick = (src: string, alt: string) => {
+    setSelectedImage({ src, alt });
+  };
   return (
     <Layout>
       <div className="max-w-5xl mx-auto">
@@ -92,7 +98,10 @@ export default function Downloads() {
               <CardContent className="p-4">
                 <div className="flex gap-4">
                   {/* Capa do Jogo */}
-                  <div className="w-24 h-32 flex-shrink-0 rounded-lg overflow-hidden bg-muted border border-border">
+                  <button 
+                    onClick={() => handleImageClick(rom.coverImage, `Capa de ${rom.title}`)}
+                    className="w-24 h-32 flex-shrink-0 rounded-lg overflow-hidden bg-muted border border-border cursor-pointer hover:ring-2 hover:ring-primary/50 transition-all"
+                  >
                     <img 
                       src={rom.coverImage} 
                       alt={`Capa de ${rom.title}`}
@@ -101,7 +110,7 @@ export default function Downloads() {
                         e.currentTarget.src = '/placeholder.svg';
                       }}
                     />
-                  </div>
+                  </button>
                   
                   {/* Conteúdo */}
                   <div className="flex-1 min-w-0">
@@ -159,7 +168,10 @@ export default function Downloads() {
                 <CardContent className="p-4">
                   <div className="flex gap-4">
                     {/* Capa do Hack */}
-                    <div className="w-24 h-32 flex-shrink-0 rounded-lg overflow-hidden bg-muted border border-border">
+                    <button 
+                      onClick={() => handleImageClick(rom.coverImage, `Capa de ${rom.title}`)}
+                      className="w-24 h-32 flex-shrink-0 rounded-lg overflow-hidden bg-muted border border-border cursor-pointer hover:ring-2 hover:ring-primary/50 transition-all"
+                    >
                       <img 
                         src={rom.coverImage} 
                         alt={`Capa de ${rom.title}`}
@@ -168,7 +180,7 @@ export default function Downloads() {
                           e.currentTarget.src = '/placeholder.svg';
                         }}
                       />
-                    </div>
+                    </button>
                     
                     {/* Conteúdo */}
                     <div className="flex-1 min-w-0">
@@ -242,6 +254,29 @@ export default function Downloads() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Modal de visualização de imagem */}
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-2xl p-2 bg-background/95 backdrop-blur-sm">
+          <DialogTitle className="sr-only">{selectedImage?.alt || "Visualização da imagem"}</DialogTitle>
+          <div className="relative">
+            <button 
+              onClick={() => setSelectedImage(null)}
+              className="absolute -top-1 -right-1 z-10 p-1.5 rounded-full bg-background border border-border hover:bg-muted transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </button>
+            <img 
+              src={selectedImage?.src} 
+              alt={selectedImage?.alt}
+              className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
+              onError={(e) => {
+                e.currentTarget.src = '/placeholder.svg';
+              }}
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
     </Layout>
   );
 }
