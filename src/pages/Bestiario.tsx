@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeader } from "@/components/ui/section-header";
+import { ImageLightbox } from "@/components/ui/image-lightbox";
 import { enemies, bosses, type Enemy } from "@/data/enemies";
 import { Skull, Search, Shield, Coins, Star, Heart, Target, Swords } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -18,11 +19,13 @@ function EnemyCard({ enemy }: { enemy: Enemy }) {
       <div className="flex gap-4 items-start">
         {/* Image */}
         {enemy.image && (
-          <div className={`flex-shrink-0 rounded-lg overflow-hidden bg-chrono-darker border border-border ${enemy.isBoss ? 'w-24 h-24' : 'w-32 h-32'}`}>
-            <img 
-              src={enemy.image} 
+          <div className="flex-shrink-0" onClick={(e) => e.stopPropagation()}>
+            <ImageLightbox
+              src={enemy.image}
               alt={enemy.name}
+              containerClassName={`rounded-lg bg-chrono-darker border border-border ${enemy.isBoss ? 'w-24 h-24' : 'w-32 h-32'}`}
               className="w-full h-full object-contain p-2 scale-125"
+              pixelated
             />
           </div>
         )}

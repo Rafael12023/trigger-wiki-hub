@@ -1,5 +1,8 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { X } from "lucide-react";
 
 interface CharacterCardProps {
   name: string;
@@ -30,41 +33,80 @@ const accentClasses = {
 };
 
 export function CharacterCard({ name, title, era, description, imageUrl, href, color }: CharacterCardProps) {
-  return (
-    <Link to={href} className="block group">
-      <div className={cn(
-        "card-chrono border-2 overflow-hidden transition-all duration-300",
-        colorClasses[color]
-      )}>
-        {/* Image container */}
-        <div className="relative aspect-square bg-chrono-darker overflow-hidden">
-          <img 
-            src={imageUrl} 
-            alt={name}
-            className="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-110"
-            style={{ imageRendering: "pixelated" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent opacity-60" />
-          
-          {/* Era badge */}
-          <span className={cn(
-            "absolute top-3 right-3 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider",
-            "bg-background/80 backdrop-blur-sm",
-            accentClasses[color]
-          )}>
-            {era}
-          </span>
-        </div>
+  const [isImageOpen, setIsImageOpen] = useState(false);
 
-        {/* Content */}
-        <div className="p-4">
-          <h3 className={cn("font-display text-xl font-bold mb-1", accentClasses[color])}>
-            {name}
-          </h3>
-          <p className="text-muted-foreground text-sm mb-2">{title}</p>
-          <p className="text-foreground/80 text-sm line-clamp-2">{description}</p>
+  const handleImageClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsImageOpen(true);
+  };
+
+  return (
+    <>
+      <Link to={href} className="block group">
+        <div className={cn(
+          "card-chrono border-2 overflow-hidden transition-all duration-300",
+          colorClasses[color]
+        )}>
+          {/* Image container */}
+          <div className="relative aspect-square bg-chrono-darker overflow-hidden">
+            <button
+              onClick={handleImageClick}
+              className="w-full h-full cursor-pointer hover:ring-2 hover:ring-primary/50 transition-all"
+            >
+              <img 
+                src={imageUrl} 
+                alt={name}
+                className="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-110"
+                style={{ imageRendering: "pixelated" }}
+              />
+            </button>
+            <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent opacity-60 pointer-events-none" />
+            
+            {/* Era badge */}
+            <span className={cn(
+              "absolute top-3 right-3 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider",
+              "bg-background/80 backdrop-blur-sm pointer-events-none",
+              accentClasses[color]
+            )}>
+              {era}
+            </span>
+          </div>
+
+          {/* Content */}
+          <div className="p-4">
+            <h3 className={cn("font-display text-xl font-bold mb-1", accentClasses[color])}>
+              {name}
+            </h3>
+            <p className="text-muted-foreground text-sm mb-2">{title}</p>
+            <p className="text-foreground/80 text-sm line-clamp-2">{description}</p>
+          </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+
+      {/* Image Lightbox Dialog */}
+      <Dialog open={isImageOpen} onOpenChange={setIsImageOpen}>
+        <DialogContent className="max-w-3xl p-2 bg-background/95 backdrop-blur-sm">
+          <DialogTitle className="sr-only">{name}</DialogTitle>
+          <div className="relative">
+            <button 
+              onClick={() => setIsImageOpen(false)}
+              className="absolute -top-1 -right-1 z-10 p-1.5 rounded-full bg-background border border-border hover:bg-muted transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </button>
+            <img 
+              src={imageUrl} 
+              alt={name}
+              className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
+              style={{ imageRendering: 'pixelated' }}
+              onError={(e) => {
+                e.currentTarget.src = '/placeholder.svg';
+              }}
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
