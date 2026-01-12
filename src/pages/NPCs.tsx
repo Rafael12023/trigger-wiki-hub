@@ -1,5 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeader } from "@/components/ui/section-header";
+import { ImageLightbox } from "@/components/ui/image-lightbox";
 import { Users, MapPin, Clock } from "lucide-react";
 
 interface NPC {
@@ -199,15 +200,12 @@ export default function NPCs() {
               <div className="w-full md:w-48 h-48 flex-shrink-0">
                 <div className="w-full h-full bg-chrono-darker rounded-lg flex items-center justify-center overflow-hidden border border-border">
                   {npc.image ? (
-                    <img 
-                      src={npc.image} 
+                    <ImageLightbox
+                      src={npc.image}
                       alt={npc.name}
+                      containerClassName="w-full h-full"
                       className="w-full h-full object-contain p-4"
-                      style={{ imageRendering: 'pixelated' }}
-                      onError={(e) => {
-                        e.currentTarget.src = "";
-                        e.currentTarget.style.display = "none";
-                      }}
+                      pixelated
                     />
                   ) : (
                     <Users className="w-16 h-16 text-muted-foreground/30" />
