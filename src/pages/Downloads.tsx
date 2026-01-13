@@ -60,8 +60,9 @@ export default function Downloads() {
 
   const handleDownload = (rom: RomFile) => {
     // Cria um link temporário para forçar o download
+    // Codifica a URL para lidar com espaços e caracteres especiais
     const link = document.createElement('a');
-    link.href = rom.downloadUrl;
+    link.href = encodeURI(rom.downloadUrl);
     link.download = rom.fileName;
     document.body.appendChild(link);
     link.click();
