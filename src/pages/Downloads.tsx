@@ -59,8 +59,13 @@ export default function Downloads() {
   const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
 
   const handleDownload = (rom: RomFile) => {
-    // Abre o link de download
-    window.open(rom.downloadUrl, '_blank');
+    // Cria um link temporário para forçar o download
+    const link = document.createElement('a');
+    link.href = rom.downloadUrl;
+    link.download = rom.fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const handleImageClick = (src: string, alt: string) => {
